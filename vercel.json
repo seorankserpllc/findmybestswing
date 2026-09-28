@@ -1,0 +1,26 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/product/:slug",
+      "destination": "/products/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/guide/:slug",
+      "destination": "/guides/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/blueprint/:slug",
+      "destination": "/blueprints/:slug",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

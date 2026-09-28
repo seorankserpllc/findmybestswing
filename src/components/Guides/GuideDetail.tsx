@@ -4,6 +4,7 @@ import { getProductBySlug } from '../../data/products';
 import { ProductImage } from '../Common/ProductImage';
 import { AmazonAvailabilityButton } from '../Common/AmazonAvailabilityButton';
 import { ArrowLeft, Clock, Calendar, User, CheckCircle, AlertCircle, Info, ExternalLink, ShoppingCart, HelpCircle, BookOpenCheck } from 'lucide-react';
+import { InternalLink } from '../Common/InternalLink';
 
 interface GuideDetailProps {
   guide: EditorialGuide;
@@ -13,12 +14,7 @@ interface GuideDetailProps {
 
 export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onBack, onNavigate }) => {
   useEffect(() => {
-    const previousTitle = document.title;
-    const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
-    const previousDescription = description?.content;
-    document.title = `${guide.title} | FindMyBestSwing`;
-    if (description) description.content = guide.excerpt;
-
+    const pageUrl = `https://mybestswing.com/guides/${guide.slug}`;
     const schema = document.createElement('script');
     schema.type = 'application/ld+json';
     schema.dataset.guideSchema = guide.slug;
@@ -29,10 +25,39 @@ export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onBack, onNavig
           '@type': 'Article',
           headline: guide.title,
           description: guide.excerpt,
+          url: pageUrl,
+          mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
           datePublished: '2026-09-28',
           dateModified: '2026-09-28',
           author: { '@type': 'Organization', name: 'FindMyBestSwing Editorial Team' },
-          publisher: { '@type': 'Organization', name: 'FindMyBestSwing' },
+          publisher: {
+            '@type': 'Organization',
+            name: 'FindMyBestSwing',
+            url: 'https://mybestswing.com/',
+          },
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Home',
+              item: 'https://mybestswing.com/',
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Buying Guides',
+              item: 'https://mybestswing.com/guides',
+            },
+            {
+              '@type': 'ListItem',
+              position: 3,
+              name: guide.title,
+              item: pageUrl,
+            },
+          ],
         },
         {
           '@type': 'FAQPage',
@@ -47,8 +72,6 @@ export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onBack, onNavig
     document.head.appendChild(schema);
 
     return () => {
-      document.title = previousTitle;
-      if (description && previousDescription) description.content = previousDescription;
       schema.remove();
     };
   }, [guide]);
@@ -158,12 +181,12 @@ export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onBack, onNavig
               if (!product) return null;
               return (
                 <div key={product.id} className="bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between">
-                  <button onClick={() => onNavigate(`#/product/${product.slug}`)} className="text-left flex items-center gap-3 mb-3 group">
+                  <InternalLink href={`/products/${product.slug}`} onNavigate={onNavigate} className="text-left flex items-center gap-3 mb-3 group">
                     <div className="w-12 h-12 bg-slate-950 rounded-xl p-1 flex items-center justify-center border border-slate-800 shrink-0"><ProductImage src={product.mediaCdnUrl} alt={product.model} category={product.fallbackIcon} className="w-full h-full" /></div>
                     <div><span className="text-[10px] font-bold uppercase text-emerald-400 block">{product.brand}</span><h3 className="text-xs font-bold text-white group-hover:text-emerald-300 line-clamp-2">{product.model}</h3></div>
-                  </button>
+                  </InternalLink>
                   <div className="grid grid-cols-2 gap-2">
-                    <button onClick={() => onNavigate(`#/product/${product.slug}`)} className="py-2 px-2 rounded-xl border border-slate-700 text-slate-200 text-xs font-bold hover:border-emerald-600">Read review</button>
+                    <InternalLink href={`/products/${product.slug}`} onNavigate={onNavigate} className="flex items-center justify-center py-2 px-2 rounded-xl border border-slate-700 text-slate-200 text-xs font-bold hover:border-emerald-600">Read review</InternalLink>
                     <AmazonAvailabilityButton
                       listing={product}
                       label="Check price"

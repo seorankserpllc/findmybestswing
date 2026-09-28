@@ -7,6 +7,7 @@ import { ProductImage } from '../Common/ProductImage';
 import { AmazonAvailabilityButton } from '../Common/AmazonAvailabilityButton';
 import { ScorecardBadge } from '../Common/ScorecardBadge';
 import { CheckCircle, Sparkles, RefreshCw, Cpu, Layers } from 'lucide-react';
+import { InternalLink } from '../Common/InternalLink';
 
 interface ResultsViewProps {
   quiz: QuizState;
@@ -141,12 +142,12 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ quiz, onRestart, onNav
                   unavailableClassName="w-full sm:flex-1 flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-slate-800/80 text-white font-black text-sm transition-all "
                   iconClassName="w-4 h-4 text-white"
                 />
-              <button
-                onClick={() => onNavigate(`#/product/${matched.turnkeyProduct.slug}`)}
-                className="w-full sm:w-auto px-4 py-3 rounded-full border border-fairway-800 hover:bg-fairway-900 text-slate-300 text-xs font-semibold"
+              <InternalLink
+                href={`/products/${matched.turnkeyProduct.slug}`} onNavigate={onNavigate}
+                className="inline-flex items-center justify-center w-full sm:w-auto px-4 py-3 rounded-full border border-fairway-800 hover:bg-fairway-900 text-slate-300 text-xs font-semibold"
               >
                 Read Review
-              </button>
+              </InternalLink>
             </div>
           </div>
 
@@ -206,12 +207,12 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ quiz, onRestart, onNav
 
             <div className="mt-8 pt-4 border-t border-fairway-900 flex items-center justify-between">
               <span className="text-xs text-slate-400">Want to see full specs and distances?</span>
-              <button
-                onClick={() => onNavigate('#/blueprints')}
+              <InternalLink
+                href={'/blueprints'} onNavigate={onNavigate}
                 className="text-xs font-bold text-amber-400 hover:text-amber-300"
               >
                 View Full Blueprint →
-              </button>
+              </InternalLink>
             </div>
           </div>
 

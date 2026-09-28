@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Sparkles, Menu, X, ChevronDown, Compass, Layers, BookOpen, MessageSquare } from 'lucide-react';
 import { BrandLogo } from '../Common/BrandLogo';
+import { InternalLink } from '../Common/InternalLink';
 
 interface HeaderProps {
   currentRoute: string;
@@ -23,9 +24,7 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, onNavigate }) => {
         <div className="flex min-w-0 items-center justify-between gap-2 h-16 sm:h-20">
           
           {/* FindMyBestSwing Brand Logo */}
-          <button
-            type="button"
-            onClick={() => handleNav('#/')}
+          <InternalLink href={'/'} onNavigate={handleNav}
             className="min-w-0 flex-1 cursor-pointer text-left group"
             aria-label="Go to the FindMyBestSwing home page"
           >
@@ -35,30 +34,30 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, onNavigate }) => {
             <span className="hidden lg:block">
               <BrandLogo size="md" />
             </span>
-          </button>
+          </InternalLink>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-2">
             
             {/* Primary Action: Find My Clubs */}
-            <button
-              onClick={() => handleNav('#/wizard')}
+            <InternalLink
+              href={'/wizard'} onNavigate={handleNav}
               className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-extrabold transition-all shadow-md ${
-                currentRoute === '#/wizard' || currentRoute.startsWith('#/results')
+                currentRoute === '/wizard' || currentRoute.startsWith('/results')
                   ? 'bg-emerald-600 text-white shadow-emerald-600/30 scale-105'
                   : 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-950/60'
               }`}
             >
               <Sparkles className="w-4 h-4 text-white" />
               <span>Find My Clubs</span>
-            </button>
+            </InternalLink>
 
             {/* Club Reviews Dropdown */}
             <div className="relative">
               <button
                 onClick={() => setReviewsDropdownOpen(!reviewsDropdownOpen)}
                 className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-colors ${
-                  currentRoute.startsWith('#/catalog') || currentRoute.startsWith('#/product')
+                  currentRoute.startsWith('/catalog') || currentRoute.startsWith('/product')
                     ? 'text-fairway-300 bg-fairway-950/80 border border-fairway-800'
                     : 'text-slate-200 hover:text-white hover:bg-fairway-950/50'
                 }`}
@@ -70,90 +69,90 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, onNavigate }) => {
 
               {reviewsDropdownOpen && (
                 <div className="absolute left-0 mt-2 w-60 bg-slate-950 border border-fairway-800 rounded-2xl p-2 shadow-2xl z-50">
-                  <button
-                    onClick={() => handleNav('#/catalog')}
-                    className="w-full text-left px-3 py-2 rounded-xl text-xs font-bold text-white hover:bg-fairway-900/70 hover:text-fairway-300"
+                  <InternalLink
+                    href={'/catalog'} onNavigate={handleNav}
+                    className="block w-full text-left px-3 py-2 rounded-xl text-xs font-bold text-white hover:bg-fairway-900/70 hover:text-fairway-300"
                   >
                     All Tested Equipment
-                  </button>
+                  </InternalLink>
                   <div className="h-px bg-fairway-900/80 my-1"></div>
-                  <button
-                    onClick={() => handleNav('#/catalog?cat=complete-set')}
-                    className="w-full text-left px-3 py-2 rounded-xl text-xs text-slate-300 hover:bg-fairway-900/70 hover:text-fairway-300"
+                  <InternalLink
+                    href={'/catalog?cat=complete-set'} onNavigate={handleNav}
+                    className="block w-full text-left px-3 py-2 rounded-xl text-xs text-slate-300 hover:bg-fairway-900/70 hover:text-fairway-300"
                   >
                     Complete Starter Sets
-                  </button>
-                  <button
-                    onClick={() => handleNav('#/catalog?cat=driver')}
-                    className="w-full text-left px-3 py-2 rounded-xl text-xs text-slate-300 hover:bg-fairway-900/70 hover:text-fairway-300"
+                  </InternalLink>
+                  <InternalLink
+                    href={'/catalog?cat=driver'} onNavigate={handleNav}
+                    className="block w-full text-left px-3 py-2 rounded-xl text-xs text-slate-300 hover:bg-fairway-900/70 hover:text-fairway-300"
                   >
                     Drivers & Speed Shafts
-                  </button>
-                  <button
-                    onClick={() => handleNav('#/catalog?cat=irons')}
-                    className="w-full text-left px-3 py-2 rounded-xl text-xs text-slate-300 hover:bg-fairway-900/70 hover:text-fairway-300"
+                  </InternalLink>
+                  <InternalLink
+                    href={'/catalog?cat=irons'} onNavigate={handleNav}
+                    className="block w-full text-left px-3 py-2 rounded-xl text-xs text-slate-300 hover:bg-fairway-900/70 hover:text-fairway-300"
                   >
                     Forgiving Iron Sets
-                  </button>
-                  <button
-                    onClick={() => handleNav('#/catalog?cat=golf-ball')}
-                    className="w-full text-left px-3 py-2 rounded-xl text-xs text-slate-300 hover:bg-fairway-900/70 hover:text-fairway-300"
+                  </InternalLink>
+                  <InternalLink
+                    href={'/catalog?cat=golf-ball'} onNavigate={handleNav}
+                    className="block w-full text-left px-3 py-2 rounded-xl text-xs text-slate-300 hover:bg-fairway-900/70 hover:text-fairway-300"
                   >
                     Speed-Matched Golf Balls
-                  </button>
+                  </InternalLink>
                 </div>
               )}
             </div>
 
             {/* Build vs Buy */}
-            <button
-              onClick={() => handleNav('#/blueprints')}
+            <InternalLink
+              href={'/blueprints'} onNavigate={handleNav}
               className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-colors ${
-                currentRoute.startsWith('#/blueprint')
+                currentRoute.startsWith('/blueprint')
                   ? 'text-amber-300 bg-fairway-950/80 border border-fairway-800'
                   : 'text-slate-200 hover:text-white hover:bg-fairway-950/50'
               }`}
             >
               <Layers className="w-4 h-4 text-amber-400" />
               <span>Build vs. Buy</span>
-            </button>
+            </InternalLink>
 
             {/* Golf Guides */}
-            <button
-              onClick={() => handleNav('#/guides')}
+            <InternalLink
+              href={'/guides'} onNavigate={handleNav}
               className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-colors ${
-                currentRoute.startsWith('#/guide')
+                currentRoute.startsWith('/guide')
                   ? 'text-fairway-300 bg-fairway-950/80 border border-fairway-800'
                   : 'text-slate-200 hover:text-white hover:bg-fairway-950/50'
               }`}
             >
               <BookOpen className="w-4 h-4 text-fairway-400" />
               <span>Simple Guides</span>
-            </button>
+            </InternalLink>
 
             {/* Contact */}
-            <button
-              onClick={() => handleNav('#/contact')}
+            <InternalLink
+              href={'/contact'} onNavigate={handleNav}
               className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-colors ${
-                currentRoute === '#/contact'
+                currentRoute === '/contact'
                   ? 'text-fairway-300 bg-fairway-950/80 border border-fairway-800'
                   : 'text-slate-300 hover:text-white'
               }`}
             >
               <MessageSquare className="w-4 h-4 text-slate-400" />
               <span>Ask an Expert</span>
-            </button>
+            </InternalLink>
           </nav>
 
           {/* Mobile Finder Button & Menu Toggle */}
           <div className="flex lg:hidden shrink-0 items-center gap-1.5">
-            <button
-              onClick={() => handleNav('#/wizard')}
-              className="shrink-0 px-3 py-2 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs shadow-md"
+            <InternalLink
+              href={'/wizard'} onNavigate={handleNav}
+              className="inline-flex items-center justify-center shrink-0 px-3 py-2 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs shadow-md"
             >
               <span className="sm:hidden">Find Clubs</span>
               <span className="hidden sm:inline">Find My Clubs</span>
-            </button>
+            </InternalLink>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -171,37 +170,37 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, onNavigate }) => {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden w-full max-w-full bg-slate-950 border-b border-fairway-800 px-4 pt-3 pb-6 space-y-2">
-          <button
-            onClick={() => handleNav('#/wizard')}
+          <InternalLink
+            href={'/wizard'} onNavigate={handleNav}
             className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm"
           >
             <span>Start 30-Second Club Finder</span>
             <span>→</span>
-          </button>
-          <button
-            onClick={() => handleNav('#/catalog')}
-            className="w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:bg-fairway-900"
+          </InternalLink>
+          <InternalLink
+            href={'/catalog'} onNavigate={handleNav}
+            className="block w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:bg-fairway-900"
           >
             Reviews & Equipment Catalog
-          </button>
-          <button
-            onClick={() => handleNav('#/blueprints')}
-            className="w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:bg-fairway-900"
+          </InternalLink>
+          <InternalLink
+            href={'/blueprints'} onNavigate={handleNav}
+            className="block w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:bg-fairway-900"
           >
             Build vs. Buy (Custom Bag Setups)
-          </button>
-          <button
-            onClick={() => handleNav('#/guides')}
-            className="w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:bg-fairway-900"
+          </InternalLink>
+          <InternalLink
+            href={'/guides'} onNavigate={handleNav}
+            className="block w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:bg-fairway-900"
           >
             Simple Golf Fitting Guides
-          </button>
-          <button
-            onClick={() => handleNav('#/contact')}
-            className="w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:bg-fairway-900"
+          </InternalLink>
+          <InternalLink
+            href={'/contact'} onNavigate={handleNav}
+            className="block w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:bg-fairway-900"
           >
             Ask a Fitting Question
-          </button>
+          </InternalLink>
         </div>
       )}
     </header>

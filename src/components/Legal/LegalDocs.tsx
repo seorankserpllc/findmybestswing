@@ -108,7 +108,7 @@ export const LegalDocs: React.FC<LegalDocsProps> = ({ documentType, onBack }) =>
             </div>
 
             <p>
-              By accessing or using the FindMyBestSwing website (findmybestswing.com), you agree to be bound by these Terms of Service and all applicable federal and state laws.
+              By accessing or using the FindMyBestSwing website (mybestswing.com), you agree to be bound by these Terms of Service and all applicable federal and state laws.
             </p>
 
             <h2 className="text-lg font-bold text-white pt-2">1. Educational & Sporting Equipment Guidance</h2>

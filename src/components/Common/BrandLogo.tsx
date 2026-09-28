@@ -75,7 +75,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
         </div>
         {showTagline && size !== 'sm' && (
           <p className="text-xs text-fairway-200/70 font-medium mt-1">
-            findmybestswing.com • Smart Golf Gear Matcher
+            mybestswing.com • Smart Golf Gear Matcher
           </p>
         )}
       </div>

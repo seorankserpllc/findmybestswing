@@ -5,6 +5,7 @@ import { ProductImage } from '../Common/ProductImage';
 import { AmazonAvailabilityButton } from '../Common/AmazonAvailabilityButton';
 import { ScorecardBadge } from '../Common/ScorecardBadge';
 import { Search, Filter, ArrowRight } from 'lucide-react';
+import { InternalLink } from '../Common/InternalLink';
 
 interface CatalogViewProps {
   initialCategory?: string;
@@ -140,13 +141,13 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ initialCategory = 'all
                   iconClassName="w-3.5 h-3.5 text-white"
                 />
 
-              <button
-                onClick={() => onNavigate(`#/product/${prod.slug}`)}
-                className="p-2.5 rounded-full border border-fairway-800 hover:bg-fairway-900 text-slate-300 hover:text-white transition-colors"
+              <InternalLink
+                href={`/products/${prod.slug}`} onNavigate={onNavigate}
+                className="inline-flex items-center justify-center p-2.5 rounded-full border border-fairway-800 hover:bg-fairway-900 text-slate-300 hover:text-white transition-colors"
                 title="Read Details"
               >
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </InternalLink>
             </div>
 
           </div>

@@ -25,35 +25,45 @@ export const ProductReviewPage: React.FC<ProductReviewPageProps> = ({ product, o
       document.head.appendChild(script);
     }
 
+    const pageUrl = `https://mybestswing.com/products/${product.slug}`;
     const schemaData = {
       "@context": "https://schema.org",
       "@graph": [
         {
           "@type": "Product",
           "name": `${product.brand} ${product.model}`,
-          "image": product.mediaCdnUrl,
+          "description": product.summary,
+          "image": new URL(product.mediaCdnUrl, 'https://mybestswing.com').toString(),
+          "url": pageUrl,
+          "mainEntityOfPage": { "@type": "WebPage", "@id": pageUrl },
           "brand": {
             "@type": "Brand",
             "name": product.brand,
           },
-          "review": {
-            "@type": "Review",
-            "reviewRating": {
-              "@type": "Rating",
-              "ratingValue": product.scorecard.overallRating.toFixed(1),
-              "bestRating": "10",
+          "category": product.category,
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://mybestswing.com/",
             },
-            "author": {
-              "@type": "Organization",
-              "name": "FindMyBestSwing Review Desk",
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Golf Gear Reviews",
+              "item": "https://mybestswing.com/catalog",
             },
-            "datePublished": "2026-09-28",
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": product.scorecard.overallRating.toFixed(1),
-            "reviewCount": "84",
-          },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": `${product.brand} ${product.model}`,
+              "item": pageUrl,
+            },
+          ],
         },
         {
           "@type": "FAQPage",

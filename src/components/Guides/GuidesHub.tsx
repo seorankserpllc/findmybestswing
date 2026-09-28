@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import { EDITORIAL_GUIDES } from '../../data/guides';
 import { BookOpen, Clock, ArrowRight, User } from 'lucide-react';
+import { InternalLink } from '../Common/InternalLink';
 
 interface GuidesHubProps {
   onNavigate: (route: string) => void;
@@ -27,9 +28,10 @@ export const GuidesHub: React.FC<GuidesHubProps> = ({ onNavigate }) => {
       {/* Guide Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {EDITORIAL_GUIDES.map((guide) => (
-          <div
+          <InternalLink
             key={guide.id}
-            onClick={() => onNavigate(`#/guide/${guide.slug}`)}
+            href={`/guides/${guide.slug}`}
+            onNavigate={onNavigate}
             className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between hover:border-emerald-600/60 transition-all shadow-xl cursor-pointer group"
           >
             <div className="space-y-3">
@@ -63,7 +65,7 @@ export const GuidesHub: React.FC<GuidesHubProps> = ({ onNavigate }) => {
                 <ArrowRight className="w-3.5 h-3.5" />
               </span>
             </div>
-          </div>
+          </InternalLink>
         ))}
       </div>
 

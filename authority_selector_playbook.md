@@ -50,7 +50,7 @@ You create a site that delivers 5x–10x higher conversion rates, earns genuine 
 ```
 
 ### Deployment Strategy
-Build as a Single Page Application (SPA) with Hash routing (`#/product/:slug`, `#/guide/:slug`, `#/legal/:doc`). This enables 100% static hosting on Cloudflare Pages, Vercel, Netlify, or AWS S3 + CloudFront with zero server maintenance, zero database overhead, and sub-100ms global response times.
+Build as a Single Page Application (SPA) with clean History API paths such as `/products/:slug`, `/guides/:slug`, and `/legal/:doc`. Use `pushState` and `popstate` for client navigation, plus a platform rewrite to `/index.html` so every clean path loads directly on Vercel, Cloudflare Pages, Netlify, or another static host. Every indexable destination must also be a real `<a href>` link so people, crawlers, copy/paste, open-in-new-tab, and assistive technology all receive a durable URL.
 
 ---
 
@@ -141,7 +141,7 @@ Clicking an affiliate button that lands on an Amazon dog page or "Page Not Found
 ### Rule #10: Domain-Matched Vector Brand Identity & Crisp SVG Favicon
 > [!IMPORTANT]
 > **Branding & Professional Authority Mandate**: Never launch with a generic stock icon, emoji favicon, or misaligned project name.
-*   **Domain-Matched Identity**: Every platform must feature a dedicated brand identity matching its registered domain (e.g., `FindMyBestSwing` for `findmybestswing.com`).
+*   **Domain-Matched Identity**: Every platform must feature a dedicated brand identity matching its registered domain (e.g., `FindMyBestSwing` for `mybestswing.com`).
 *   **Unique Vector Artwork**: Design a bespoke SVG vector emblem communicating the core niche metaphor (e.g., dynamic golf club trajectory arc cradling a dimpled golf ball with an amber apex sweet-spot spark).
 *   **Modern SVG Favicon**: Place a standalone, high-contrast SVG favicon in `public/favicon.svg` and reference it directly in `index.html` via `<link rel="icon" type="image/svg+xml" href="/favicon.svg" />`.
 *   **Reusable Component Architecture**: Encapsulate the logo within a reusable `BrandLogo.tsx` component supporting responsive size variants (`sm`, `md`, `lg`) and dynamic taglines for seamless integration across Header, Footer, and modal views.
@@ -158,6 +158,19 @@ Clicking an affiliate button that lands on an Amazon dog page or "Page Not Found
 *   **Containment safety net**: Keep `html`, `body`, the application root, header, main, and footer constrained to `max-width: 100%`. Page-level `overflow-x: clip` may prevent accidental browser panning, but the offending component still must be fixed.
 *   **Required QA**: Open and close the mobile navigation at 320 px, 360 px and 390 px. Check the home page, selector, results, catalog, product review, blueprint, guide hub, guide article, legal pages, footer, and cookie controls. Verify no clipped copy, overlapping controls, off-screen tap targets, layout shifts, or blank side gutters.
 *   **Regression gate**: Any layout change must include a production build, diff check, and a viewport-width audit before commit and deployment.
+
+### Rule #12: Clean, Crawlable URLs with Zero Fragment Routing
+> [!IMPORTANT]
+> **Never use a hash or URL fragment for page routing.** Fragments are for an optional jump to a section within the same document, not for products, guides, categories, legal pages, or any other indexable destination.
+
+*   **Clean route pattern**: Use descriptive, lowercase, hyphenated paths such as `/products/callaway-strata-12-piece`, `/guides/driver-shaft-flex-swing-speed-matrix`, and `/blueprints/95-mph-speed-matched-bag`.
+*   **Crawlable internal links**: Every discoverable destination must be rendered as a real `<a href="/clean-path">`. JavaScript may intercept an ordinary left click for SPA navigation, but the href must remain usable without JavaScript and with open-in-new-tab.
+*   **History API routing**: Use `history.pushState` for navigation and `popstate` for Back and Forward. Never generate fragment-based URLs in menus, cards, buttons, breadcrumbs, schema, canonicals, social metadata, sitemap entries, or redirects.
+*   **Direct-load support**: Configure the host to rewrite clean application routes to `/index.html`. Test a pasted deep link in a new browser session before deployment.
+*   **One canonical URL**: Emit a self-referencing absolute canonical without fragments or tracking parameters. Keep the same clean URL in Open Graph metadata, JSON-LD, internal links, and the XML sitemap.
+*   **Migration and redirects**: Add permanent redirects from obsolete server-visible paths to the preferred plural route. Because browsers do not send fragments to the server, strip any legacy fragment route client-side with `replaceState`, then stop publishing or linking to it.
+*   **Index control**: Include only useful, indexable pages in `sitemap.xml`; keep personalized results and multi-step tools out of the sitemap and mark them `noindex` when appropriate.
+*   **Required QA**: Search the built source and rendered DOM for fragment routes, verify all internal hrefs, confirm canonical/title/description per route, test Back and Forward, request deep links directly, and validate `robots.txt`, `sitemap.xml`, and the production build.
 
 ---
 
@@ -200,7 +213,8 @@ Structure your product FAQs around high-intent **"People Also Asked" (PAA)** and
 *   *Direct Comparison*: "How does this model compare against [Primary Competitor]?"
 
 ### D. JSON-LD Structured Data (Google Rich Snippets)
-Inject dynamic Schema.org structured data directly into the page:
+Inject only Schema.org data that is supported by the visible page and verified source material. A safe product page graph can include `Product`, `BreadcrumbList`, and `FAQPage`. Add `Review`, `AggregateRating`, `Offer`, price, availability, or testing claims only when the exact data is authentic, current, documented, and visible to the reader.
+
 ```html
 <script type="application/ld+json">
 {
@@ -208,29 +222,24 @@ Inject dynamic Schema.org structured data directly into the page:
   "@graph": [
     {
       "@type": "Product",
-      "name": "Merkur 34C Heavy Duty Double Edge Safety Razor",
-      "image": "https://m.media-amazon.com/images/I/...",
-      "brand": { "@type": "Brand", "name": "Merkur of Solingen" },
-      "review": {
-        "@type": "Review",
-        "reviewRating": { "@type": "Rating", "ratingValue": "4.8", "bestRating": "5" },
-        "author": { "@type": "Organization", "name": "FindMyShaver Editorial Team" }
+      "name": "Verified brand and model",
+      "description": "The same factual summary shown on the page",
+      "url": "https://example.com/products/verified-product-slug",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://example.com/products/verified-product-slug"
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "1420"
-      }
+      "brand": { "@type": "Brand", "name": "Verified brand" }
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Is the Merkur 34C suitable for complete beginners to wet shaving?",
+          "name": "A decision-changing question displayed on the page",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, the Merkur 34C is universally considered the #1 starter safety razor..."
+            "text": "The same evidence-backed answer displayed on the page"
           }
         }
       ]
@@ -358,9 +367,9 @@ Display formal operating entity:
 - [ ] **Step 5: Verify Active ASINs & Prevent 404s**: Verify each ASIN using automated HTTP GET requests against live `https://www.amazon.com/dp/[ASIN]` to guarantee 200 OK status and zero "Product Not Found" dead links.
 - [ ] **Step 6: Configure Direct Outbound Links**: Ensure all outbound CTA links route directly to `https://www.amazon.com/dp/[ASIN]?tag=[TAG]` (e.g. `findmyshaver0b-20`). Zero search URLs.
 - [ ] **Step 7: Ensure Pricing Compliance**: Use relative price tier brackets (`$`, `$$`, `$$$`, `$$$$`) and "Check Price on Amazon". No static dollar prices without PAAPI.
-- [ ] **Step 8: Build Programmatic Reviews**: Create dedicated URL routes for each model (`#/product/:slug`) featuring Lab Scorecards, real-world metrics, and PAA FAQs.
+- [ ] **Step 8: Build Programmatic Reviews**: Create dedicated URL routes for each model (`/products/:slug`) featuring evidence-backed scorecards, verified specifications, clear trade-offs, and decision-changing FAQs.
 - [ ] **Step 9: Enforce Heading Hierarchy**: Verify `<h1>` is the first heading in DOM order, followed logically by `<h2>` and `<h3>`.
-- [ ] **Step 10: Inject Schema.org JSON-LD**: Embed `Product`, `Review`, and `FAQPage` structured data on every product page.
+- [ ] **Step 10: Inject Honest Schema.org JSON-LD**: Embed only structured data supported by visible page content. Never invent aggregate ratings, review counts, tests, prices, availability, or credentials.
 - [ ] **Step 11: Deploy Legal & Consent Infrastructure**: Add the FTC/Amazon disclosure, GDPR/CCPA Privacy Policy, and interactive Cookie Consent banner.
 - [ ] **Step 12: Deploy Spam-Proof Contact Desk**: Wire FormSubmit AJAX to `build100k@gmail.com` with zero raw email display on UI, dual honeypots, rate limiting, human speed thresholds, and registered entity physical address.
 - [ ] **Step 13: Enforce WCAG AAA High-Contrast Standard**: Audit every button, badge, and navigation item. Ensure zero black/dark text on colored or dark backgrounds; all buttons on emerald/fairway/amber backgrounds must use `text-white font-extrabold`.
@@ -368,3 +377,4 @@ Display formal operating entity:
 - [ ] **Step 15: Mirror Authentic Product Media Locally**: Download and verify real product photography into `public/images/products/[slug].png/.jpg` to ensure zero broken CDN images or ad-blocker dropouts.
 - [ ] **Step 16: Deploy Custom Vector Brand Logo & Favicon**: Build a domain-matched SVG emblem (`BrandLogo.tsx`), link a sharp SVG favicon in `index.html` (`public/favicon.svg`), and align all brand mentions across terms, footers, and contact desks.
 - [ ] **Step 17: Pass Mobile Viewport QA**: Test 320 px, 360 px, 390 px, tablet and desktop layouts. Confirm page-level `scrollWidth === clientWidth`, the menu opens without widening the document, controls stay on-screen, long labels wrap, local tables scroll only inside their containers, and no blank right-side strip appears.
+- [ ] **Step 18: Pass Clean URL SEO QA**: Reject any fragment-routed page. Verify real anchor hrefs, self-referencing canonicals, clean Open Graph and JSON-LD URLs, sitemap inclusion for indexable pages, noindex for personalized tools, direct deep-link loading, Back and Forward behavior, and permanent redirects from obsolete server-visible paths.

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShieldCheck, Compass, Layers, BookOpen } from 'lucide-react';
 import { BrandLogo } from '../Common/BrandLogo';
+import { InternalLink } from '../Common/InternalLink';
 
 interface FooterProps {
   onNavigate: (route: string) => void;
@@ -20,12 +21,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               "As an Amazon Associate I earn from qualifying purchases." Amazon links are shown only after listing verification; price and availability can change.
             </span>
           </div>
-          <button
-            onClick={() => onNavigate('#/legal/disclosure')}
+          <InternalLink
+            href={'/legal/disclosure'} onNavigate={onNavigate}
             className="text-fairway-400 hover:text-fairway-300 font-semibold underline shrink-0 text-[11px]"
           >
             Read Affiliate Disclosure
-          </button>
+          </InternalLink>
         </div>
       </div>
 
@@ -53,29 +54,29 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </h4>
             <ul className="space-y-1.5">
               <li>
-                <button onClick={() => onNavigate('#/product/callaway-strata-12-piece')} className="hover:text-fairway-400 transition-colors">
+                <InternalLink href={'/products/callaway-strata-12-piece'} onNavigate={onNavigate} className="hover:text-fairway-400 transition-colors">
                   Callaway Strata 12-Piece Set
-                </button>
+                </InternalLink>
               </li>
               <li>
-                <button onClick={() => onNavigate('#/product/wilson-profile-platinum')} className="hover:text-fairway-400 transition-colors">
+                <InternalLink href={'/products/wilson-profile-platinum'} onNavigate={onNavigate} className="hover:text-fairway-400 transition-colors">
                   Wilson Profile SGI (Tall Option)
-                </button>
+                </InternalLink>
               </li>
               <li>
-                <button onClick={() => onNavigate('#/product/taylormade-stealth-2-driver')} className="hover:text-fairway-400 transition-colors">
+                <InternalLink href={'/products/taylormade-stealth-2-driver'} onNavigate={onNavigate} className="hover:text-fairway-400 transition-colors">
                   TaylorMade Stealth 2 Driver
-                </button>
+                </InternalLink>
               </li>
               <li>
-                <button onClick={() => onNavigate('#/product/callaway-rogue-st-max-os-irons')} className="hover:text-fairway-400 transition-colors">
+                <InternalLink href={'/products/callaway-rogue-st-max-os-irons'} onNavigate={onNavigate} className="hover:text-fairway-400 transition-colors">
                   Callaway Rogue ST Max OS Irons
-                </button>
+                </InternalLink>
               </li>
               <li>
-                <button onClick={() => onNavigate('#/product/callaway-supersoft-golf-balls')} className="hover:text-fairway-400 transition-colors">
+                <InternalLink href={'/products/callaway-supersoft-golf-balls'} onNavigate={onNavigate} className="hover:text-fairway-400 transition-colors">
                   Callaway Supersoft Golf Balls
-                </button>
+                </InternalLink>
               </li>
             </ul>
           </div>
@@ -88,24 +89,24 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </h4>
             <ul className="space-y-1.5">
               <li>
-                <button onClick={() => onNavigate('#/blueprint/95-mph-speed-matched-bag')} className="hover:text-amber-400 transition-colors">
+                <InternalLink href={'/blueprints/95-mph-speed-matched-bag'} onNavigate={onNavigate} className="hover:text-amber-400 transition-colors">
                   The 95 MPH Speed Bag
-                </button>
+                </InternalLink>
               </li>
               <li>
-                <button onClick={() => onNavigate('#/blueprint/tall-golfer-upright-rig')} className="hover:text-amber-400 transition-colors">
+                <InternalLink href={'/blueprints/tall-golfer-upright-rig'} onNavigate={onNavigate} className="hover:text-amber-400 transition-colors">
                   The Tall Golfer (6'2"+) Bag
-                </button>
+                </InternalLink>
               </li>
               <li>
-                <button onClick={() => onNavigate('#/blueprint/20-handicap-forgiveness-fortress')} className="hover:text-amber-400 transition-colors">
+                <InternalLink href={'/blueprints/20-handicap-forgiveness-fortress'} onNavigate={onNavigate} className="hover:text-amber-400 transition-colors">
                   The 20+ Handicap Forgiving Bag
-                </button>
+                </InternalLink>
               </li>
               <li>
-                <button onClick={() => onNavigate('#/wizard')} className="hover:text-fairway-400 font-bold text-fairway-300">
+                <InternalLink href={'/wizard'} onNavigate={onNavigate} className="hover:text-fairway-400 font-bold text-fairway-300">
                   Take the Club Quiz →
-                </button>
+                </InternalLink>
               </li>
             </ul>
           </div>
@@ -118,26 +119,26 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </h4>
             <ul className="space-y-1.5">
               <li>
-                <button onClick={() => onNavigate('#/guide/driver-shaft-flex-swing-speed-matrix')} className="hover:text-fairway-400 transition-colors">
+                <InternalLink href={'/guides/driver-shaft-flex-swing-speed-matrix'} onNavigate={onNavigate} className="hover:text-fairway-400 transition-colors">
                   Driver Shaft Flex Guide
-                </button>
+                </InternalLink>
               </li>
               <li>
-                <button onClick={() => onNavigate('#/guide/golf-ball-compression-chart-velocity-guide')} className="hover:text-fairway-400 transition-colors">
+                <InternalLink href={'/guides/golf-ball-compression-chart-velocity-guide'} onNavigate={onNavigate} className="hover:text-fairway-400 transition-colors">
                   Soft vs. Tour Golf Balls
-                </button>
+                </InternalLink>
               </li>
               <li>
-                <button onClick={() => onNavigate('#/guide/tall-golfer-club-fitting-guide')} className="hover:text-fairway-400 transition-colors">
+                <InternalLink href={'/guides/tall-golfer-club-fitting-guide'} onNavigate={onNavigate} className="hover:text-fairway-400 transition-colors">
                   Tall Golfer Fitting Tips
-                </button>
+                </InternalLink>
               </li>
               <li className="pt-2 border-t border-fairway-900/60 flex flex-wrap gap-2 text-[11px]">
-                <button onClick={() => onNavigate('#/legal/disclosure')} className="hover:text-white">Disclosure</button>
+                <InternalLink href={'/legal/disclosure'} onNavigate={onNavigate} className="hover:text-white">Disclosure</InternalLink>
                 <span>•</span>
-                <button onClick={() => onNavigate('#/legal/privacy')} className="hover:text-white">Privacy</button>
+                <InternalLink href={'/legal/privacy'} onNavigate={onNavigate} className="hover:text-white">Privacy</InternalLink>
                 <span>•</span>
-                <button onClick={() => onNavigate('#/legal/terms')} className="hover:text-white">Terms</button>
+                <InternalLink href={'/legal/terms'} onNavigate={onNavigate} className="hover:text-white">Terms</InternalLink>
               </li>
             </ul>
           </div>

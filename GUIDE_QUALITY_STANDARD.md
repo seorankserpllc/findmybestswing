@@ -1,4 +1,4 @@
-﻿# Buying Guide Quality Standard
+# Buying Guide Quality Standard
 
 Last reviewed: September 28, 2026
 
@@ -107,6 +107,13 @@ Do not add FAQs only to reach a count. Each answer must change a decision, preve
 - Product suggestions must explain fit and limitation; never present them as universal winners.
 
 ### Technical checks
+
+- Never use a hash or URL fragment for page routing. Use descriptive lowercase, hyphenated paths.
+- Every indexable guide and product destination must be a real `<a href>` link, not a button-only JavaScript route.
+- Give each indexable page one self-referencing absolute canonical URL. Use the same clean path in Open Graph metadata, JSON-LD, internal links and `sitemap.xml`.
+- Test direct loading, refresh, Back and Forward on every changed clean path. The hosting rewrite must return the app for deep links.
+- Keep personalized results and multi-step tools out of the sitemap and mark them `noindex` when appropriate.
+- Search source and the rendered DOM before publication; no internal href, canonical, schema URL, social URL, sitemap entry or redirect destination may contain a fragment.
 
 - Article and FAQ structured data must match visible page content.
 - Page title and description must describe the actual decision.

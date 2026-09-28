@@ -5,6 +5,7 @@ import { ProductImage } from '../Common/ProductImage';
 import { AmazonAvailabilityButton } from '../Common/AmazonAvailabilityButton';
 import { ScorecardBadge } from '../Common/ScorecardBadge';
 import { Sparkles, ArrowRight, ShieldCheck, Flag, CheckCircle2, Zap, Layers } from 'lucide-react';
+import { InternalLink } from '../Common/InternalLink';
 
 interface HomePageProps {
   onNavigate: (route: string) => void;
@@ -40,20 +41,20 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
           {/* Primary Action Button */}
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <button
-              onClick={() => onNavigate('#/wizard')}
+            <InternalLink
+              href={'/wizard'} onNavigate={onNavigate}
               className="w-full sm:w-auto flex items-center justify-center gap-2.5 py-4 px-9 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-black text-base transition-all shadow-xl shadow-emerald-950/70 hover:scale-105 active:scale-95 group"
             >
               <span className="text-white">Take the 30-Second Club Quiz</span>
               <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
-            </button>
+            </InternalLink>
 
-            <button
-              onClick={() => onNavigate('#/catalog')}
+            <InternalLink
+              href={'/catalog'} onNavigate={onNavigate}
               className="w-full sm:w-auto flex items-center justify-center gap-2 py-4 px-7 rounded-full bg-slate-900/90 hover:bg-slate-800 border border-fairway-800/80 text-white font-bold text-sm transition-colors"
             >
               <span>See Tested Clubs</span>
-            </button>
+            </InternalLink>
           </div>
 
           {/* 3 Quick Badges */}
@@ -133,13 +134,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             <p className="text-xs text-slate-400">Honest buying guidance, with purchase links shown only after listing verification.</p>
           </div>
 
-          <button
-            onClick={() => onNavigate('#/catalog')}
+          <InternalLink
+            href={'/catalog'} onNavigate={onNavigate}
             className="text-xs font-bold text-fairway-400 hover:text-fairway-300 flex items-center gap-1"
           >
             <span>See All 12 Products</span>
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </InternalLink>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -183,12 +184,12 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   unavailableClassName="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-slate-800/80 text-white font-bold text-xs transition-colors "
                   iconClassName="w-3.5 h-3.5 text-white"
                 />
-                <button
-                  onClick={() => onNavigate(`#/product/${prod.slug}`)}
-                  className="px-3 py-2.5 rounded-xl border border-fairway-800 hover:bg-fairway-900/60 text-xs font-semibold text-slate-300"
+                <InternalLink
+                  href={`/products/${prod.slug}`} onNavigate={onNavigate}
+                  className="inline-flex items-center justify-center px-3 py-2.5 rounded-xl border border-fairway-800 hover:bg-fairway-900/60 text-xs font-semibold text-slate-300"
                 >
                   Details
-                </button>
+                </InternalLink>
               </div>
             </div>
           ))}
@@ -207,13 +208,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               If you are just starting out, an all-in-one box set (like Callaway Strata) saves you hundreds of dollars. But if you want clubs tailored to your exact height and swing speed, our custom blueprints show you how to assemble a bag piece by piece.
             </p>
             <div className="pt-2">
-              <button
-                onClick={() => onNavigate('#/blueprints')}
+              <InternalLink
+                href={'/blueprints'} onNavigate={onNavigate}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs transition-all shadow-lg"
               >
                 <span>Compare Build vs. Buy</span>
                 <ArrowRight className="w-4 h-4 text-white" />
-              </button>
+              </InternalLink>
             </div>
           </div>
 

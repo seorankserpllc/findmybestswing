@@ -5,7 +5,14 @@ export default defineConfig({
   plugins: [react()],
   server: {
     watch: {
-      ignored: ['**/.chrome-mobile-qa/**', '**/.git/**'],
+      ignored: [
+        '**/.chrome*/**',
+        '**/*-qa/**',
+        '**/.git/**',
+        '**/GPUPersistentCache/**',
+        '**/*.db',
+        '**/*.db-journal',
+      ],
     },
   },
 });

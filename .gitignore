@@ -39,4 +39,7 @@ https___*
 
 # Codex local attachments & QA Cache
 .codex-remote-attachments/
-.chrome-mobile-qa/
+.chrome*/
+*-qa/
+*.db
+*.db-journal

@@ -5,6 +5,7 @@ import { formatPriceTierLabel } from '../../utils/amazonLinks';
 import { ProductImage } from '../Common/ProductImage';
 import { AmazonAvailabilityButton } from '../Common/AmazonAvailabilityButton';
 import { Layers, Wrench, CheckCircle } from 'lucide-react';
+import { InternalLink } from '../Common/InternalLink';
 
 interface BlueprintViewProps {
   initialSlug?: string;
@@ -134,12 +135,12 @@ export const BlueprintView: React.FC<BlueprintViewProps> = ({ initialSlug, onNav
                   </div>
 
                   <div className="flex w-full min-[380px]:w-auto flex-col min-[380px]:flex-row items-stretch min-[380px]:items-center gap-2 self-stretch sm:self-center">
-                    <button
-                      onClick={() => onNavigate(`#/product/${product.slug}`)}
-                      className="w-full min-[380px]:w-auto px-3 py-1.5 rounded-full text-xs font-semibold text-slate-300 hover:text-white border border-fairway-800"
+                    <InternalLink
+                      href={`/products/${product.slug}`} onNavigate={onNavigate}
+                      className="inline-flex items-center justify-center w-full min-[380px]:w-auto px-3 py-1.5 rounded-full text-xs font-semibold text-slate-300 hover:text-white border border-fairway-800"
                     >
                       Review
-                    </button>
+                    </InternalLink>
                     <AmazonAvailabilityButton
                   listing={product}
                   label="Check Price"
