@@ -147,6 +147,18 @@ Clicking an affiliate button that lands on an Amazon dog page or "Page Not Found
 *   **Reusable Component Architecture**: Encapsulate the logo within a reusable `BrandLogo.tsx` component supporting responsive size variants (`sm`, `md`, `lg`) and dynamic taglines for seamless integration across Header, Footer, and modal views.
 *   **Zero Brand Drift**: Audit all legal documents, email subjects, Schema JSON-LD organizations, and copyright lines to ensure uniform brand naming.
 
+### Rule #11: Mobile-First Viewport Integrity & Zero Page-Level Horizontal Scroll
+> [!IMPORTANT]
+> **A mobile page is not complete when it merely looks acceptable at one width.** It must remain fully usable at 320 px, 360 px, 390 px, common tablet widths, and desktop widths without shifting sideways or exposing a blank strip.
+
+*   **Hard viewport invariant**: At every test width, `document.documentElement.scrollWidth` must equal `document.documentElement.clientWidth`. Wide comparison tables may scroll inside a dedicated `overflow-x-auto` wrapper, but the page itself must never scroll horizontally.
+*   **Header budgeting**: Treat the mobile logo, primary CTA, menu button, and page padding as one fixed width budget. Use compact logo variants and shorter CTA labels at narrow widths; apply `min-width: 0` to flexible brand and content regions and `shrink-0` only to controls that must retain their tap target.
+*   **Responsive rows**: Product names, badges, button groups, result cards, and blueprint rows must wrap or stack before they exceed the viewport. Never rely on clipping to conceal a component-level overflow.
+*   **Long-content resilience**: Test long product names, unavailable-listing labels, dates, legal copy, and translated-length text. Use wrapping and `break-words` where content is not guaranteed to be short.
+*   **Containment safety net**: Keep `html`, `body`, the application root, header, main, and footer constrained to `max-width: 100%`. Page-level `overflow-x: clip` may prevent accidental browser panning, but the offending component still must be fixed.
+*   **Required QA**: Open and close the mobile navigation at 320 px, 360 px and 390 px. Check the home page, selector, results, catalog, product review, blueprint, guide hub, guide article, legal pages, footer, and cookie controls. Verify no clipped copy, overlapping controls, off-screen tap targets, layout shifts, or blank side gutters.
+*   **Regression gate**: Any layout change must include a production build, diff check, and a viewport-width audit before commit and deployment.
+
 ---
 
 ## 4. Programmatic SEO: Ranking Individual Product Review Pages
@@ -355,3 +367,4 @@ Display formal operating entity:
 - [ ] **Step 14: Scrub ASIN Numbers from User-Facing Copy**: Confirm that no raw ASIN codes appear anywhere in product cards, specs tables, comparison grids, review pages, or form dropdowns.
 - [ ] **Step 15: Mirror Authentic Product Media Locally**: Download and verify real product photography into `public/images/products/[slug].png/.jpg` to ensure zero broken CDN images or ad-blocker dropouts.
 - [ ] **Step 16: Deploy Custom Vector Brand Logo & Favicon**: Build a domain-matched SVG emblem (`BrandLogo.tsx`), link a sharp SVG favicon in `index.html` (`public/favicon.svg`), and align all brand mentions across terms, footers, and contact desks.
+- [ ] **Step 17: Pass Mobile Viewport QA**: Test 320 px, 360 px, 390 px, tablet and desktop layouts. Confirm page-level `scrollWidth === clientWidth`, the menu opens without widening the document, controls stay on-screen, long labels wrap, local tables scroll only inside their containers, and no blank right-side strip appears.

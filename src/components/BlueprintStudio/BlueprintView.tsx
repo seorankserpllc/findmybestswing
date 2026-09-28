@@ -19,7 +19,7 @@ export const BlueprintView: React.FC<BlueprintViewProps> = ({ initialSlug, onNav
   const activeBlueprint = BLUEPRINTS.find((b) => b.slug === selectedSlug) || BLUEPRINTS[0];
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8 sm:py-12 space-y-8">
+    <div className="w-full min-w-0 max-w-6xl mx-auto px-4 py-8 sm:py-12 space-y-8">
       
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto space-y-2">
@@ -99,8 +99,8 @@ export const BlueprintView: React.FC<BlueprintViewProps> = ({ initialSlug, onNav
 
         {/* Parts List */}
         <div className="space-y-3">
-          <div className="flex items-center justify-between">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white flex items-center gap-1.5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+            <h3 className="min-w-0 text-sm font-bold uppercase tracking-wider text-white flex items-center gap-1.5">
               <Wrench className="w-4 h-4 text-amber-400" />
               <span>Recommended Equipment List</span>
             </h3>
@@ -117,7 +117,7 @@ export const BlueprintView: React.FC<BlueprintViewProps> = ({ initialSlug, onNav
                   key={idx}
                   className="bg-slate-950/80 border border-fairway-900 rounded-2xl p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex min-w-0 items-center gap-3">
                     <div className="w-12 h-12 bg-slate-900 rounded-xl p-1 flex items-center justify-center border border-fairway-900 shrink-0">
                       <ProductImage
                         src={product.mediaCdnUrl}
@@ -126,17 +126,17 @@ export const BlueprintView: React.FC<BlueprintViewProps> = ({ initialSlug, onNav
                         className="w-full h-full"
                       />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <span className="text-[10px] font-mono uppercase font-bold text-amber-300">{item.role}</span>
-                      <h4 className="text-xs sm:text-sm font-bold text-white">{product.brand} {product.model}</h4>
+                      <h4 className="text-xs sm:text-sm font-bold text-white break-words">{product.brand} {product.model}</h4>
                       <p className="text-xs text-fairway-300 font-medium">{item.customSpecNote}</p>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-2 self-end sm:self-center">
+                  <div className="flex w-full min-[380px]:w-auto flex-col min-[380px]:flex-row items-stretch min-[380px]:items-center gap-2 self-stretch sm:self-center">
                     <button
                       onClick={() => onNavigate(`#/product/${product.slug}`)}
-                      className="px-3 py-1.5 rounded-full text-xs font-semibold text-slate-300 hover:text-white border border-fairway-800"
+                      className="w-full min-[380px]:w-auto px-3 py-1.5 rounded-full text-xs font-semibold text-slate-300 hover:text-white border border-fairway-800"
                     >
                       Review
                     </button>
@@ -144,7 +144,7 @@ export const BlueprintView: React.FC<BlueprintViewProps> = ({ initialSlug, onNav
                   listing={product}
                   label="Check Price"
                   className="flex items-center gap-1 px-4 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md"
-                  unavailableClassName="flex items-center gap-1 px-4 py-1.5 rounded-full bg-slate-800/80 text-white font-bold text-xs "
+                  unavailableClassName="w-full min-[380px]:w-auto flex items-center gap-1 px-4 py-1.5 rounded-full bg-slate-800/80 text-white font-bold text-xs "
                   iconClassName="w-3 h-3 text-white"
                 />
                   </div>

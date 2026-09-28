@@ -22,10 +22,10 @@ export const AmazonAvailabilityButton: React.FC<AmazonAvailabilityButtonProps> =
       <span
         aria-disabled="true"
         title="This Amazon listing is unavailable or awaiting re-verification."
-        className={`cursor-not-allowed flex items-center justify-center gap-1.5 bg-slate-800/80 border border-slate-700 text-slate-300 ${unavailableClassName || className}`}
+        className={`cursor-not-allowed min-w-0 max-w-full flex items-center justify-center gap-1.5 bg-slate-800/80 border border-slate-700 text-slate-300 ${unavailableClassName || className}`}
       >
         <AlertTriangle className={`${iconClassName} text-amber-400 shrink-0`} />
-        <span>Listing being re-verified</span>
+        <span className="min-w-0 break-words text-center leading-tight">Listing being re-verified</span>
       </span>
     );
   }
@@ -35,9 +35,9 @@ export const AmazonAvailabilityButton: React.FC<AmazonAvailabilityButtonProps> =
       href={getAmazonUrl(listing.asin)}
       target="_blank"
       rel="nofollow sponsored noopener noreferrer"
-      className={className}
+      className={`min-w-0 max-w-full ${className}`}
     >
-      <span>{label}</span>
+      <span className="min-w-0 break-words text-center leading-tight">{label}</span>
       <ExternalLink className={`${iconClassName} shrink-0`} />
     </a>
   );

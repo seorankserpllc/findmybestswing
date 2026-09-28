@@ -113,6 +113,9 @@ Do not add FAQs only to reach a count. Each answer must change a decision, preve
 - Heading order must be logical and accessible.
 - External sources open in a new tab with safe link attributes.
 - Run the production build and `git diff --check`.
+- Test every changed page at 320 px, 360 px, 390 px and a desktop width. The document must satisfy `scrollWidth === clientWidth`; wide tables may scroll only inside their own labeled container.
+- Open and close the mobile menu at each phone width. Confirm the header, drawer, buttons, cards, tables, footer and cookie controls remain inside the viewport with no clipped copy, blank side strip or page-level horizontal scrolling.
+- Treat global overflow clipping only as a safety net. Fix the component that exceeds the viewport using responsive sizing, wrapping and `min-width: 0`.
 - Commit only after reviewing the diff, then push the current branch so Vercel can deploy it.
 
 ## Daily article workflow

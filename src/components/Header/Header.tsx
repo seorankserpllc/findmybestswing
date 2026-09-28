@@ -18,17 +18,24 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, onNavigate }) => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#072417]/95 backdrop-blur-md border-b border-fairway-800/80 shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+    <header className="sticky top-0 z-50 w-full max-w-full overflow-x-clip bg-[#072417]/95 backdrop-blur-md border-b border-fairway-800/80 shadow-md">
+      <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex min-w-0 items-center justify-between gap-2 h-16 sm:h-20">
           
           {/* FindMyBestSwing Brand Logo */}
-          <div 
-            onClick={() => handleNav('#/')} 
-            className="cursor-pointer group"
+          <button
+            type="button"
+            onClick={() => handleNav('#/')}
+            className="min-w-0 flex-1 cursor-pointer text-left group"
+            aria-label="Go to the FindMyBestSwing home page"
           >
-            <BrandLogo size="md" />
-          </div>
+            <span className="block lg:hidden">
+              <BrandLogo size="sm" showTagline={false} compactOnMobile className="gap-2" />
+            </span>
+            <span className="hidden lg:block">
+              <BrandLogo size="md" />
+            </span>
+          </button>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-2">
@@ -139,16 +146,20 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, onNavigate }) => {
           </nav>
 
           {/* Mobile Finder Button & Menu Toggle */}
-          <div className="flex lg:hidden items-center gap-2">
+          <div className="flex lg:hidden shrink-0 items-center gap-1.5">
             <button
               onClick={() => handleNav('#/wizard')}
-              className="px-4 py-2 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs shadow-md"
+              className="shrink-0 px-3 py-2 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs shadow-md"
             >
-              Find My Clubs
+              <span className="sm:hidden">Find Clubs</span>
+              <span className="hidden sm:inline">Find My Clubs</span>
             </button>
             <button
+              type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl text-slate-300 hover:text-white hover:bg-fairway-900"
+              className="shrink-0 p-2 rounded-xl text-slate-300 hover:text-white hover:bg-fairway-900"
+              aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -159,7 +170,7 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, onNavigate }) => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-slate-950 border-b border-fairway-800 px-4 pt-3 pb-6 space-y-2">
+        <div className="lg:hidden w-full max-w-full bg-slate-950 border-b border-fairway-800 px-4 pt-3 pb-6 space-y-2">
           <button
             onClick={() => handleNav('#/wizard')}
             className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm"

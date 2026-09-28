@@ -37,5 +37,6 @@ Thumbs.db
 *.csv
 https___*
 
-# Codex local attachments
+# Codex local attachments & QA Cache
 .codex-remote-attachments/
+.chrome-mobile-qa/

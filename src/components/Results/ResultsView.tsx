@@ -19,7 +19,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ quiz, onRestart, onNav
   const matched = matchGolfGear(quiz, biomechanics);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8 sm:py-12 space-y-12">
+    <div className="w-full min-w-0 max-w-6xl mx-auto px-4 py-8 sm:py-12 space-y-12">
       
       {/* Top Banner: Your Personalized Recommendation */}
       <div className="bg-gradient-to-br from-[#0c2f1f] via-[#092418] to-[#061c12] border border-fairway-700/60 rounded-3xl p-6 sm:p-9 shadow-2xl relative overflow-hidden">
@@ -47,7 +47,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ quiz, onRestart, onNav
         </div>
 
         {/* 4 Simple Spec Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-6">
+        <div className="grid grid-cols-1 min-[360px]:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-6">
           <div className="bg-slate-950/70 border border-fairway-900 rounded-2xl p-4">
             <span className="text-[10px] uppercase font-mono text-fairway-400 font-bold block">Shaft Flexibility</span>
             <span className="text-base font-extrabold text-white mt-1 block">{biomechanics.recommendedShaftFlex.split('(')[0]}</span>
@@ -90,7 +90,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ quiz, onRestart, onNav
           
           {/* OPTION A: EASY ALL-IN-ONE BOX */}
           <div className="bg-[#0a2318] border-2 border-fairway-600/70 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative">
-            <div className="absolute -top-3.5 left-8 px-3.5 py-1 rounded-full bg-emerald-600 text-white text-xs font-black uppercase tracking-wider shadow-md">
+            <div className="absolute -top-3.5 left-4 right-4 sm:left-8 sm:right-auto px-3.5 py-1 rounded-full bg-emerald-600 text-center text-white text-xs font-black uppercase tracking-wider shadow-md">
               Option A: Easy All-In-One Box Set
             </div>
 
@@ -152,7 +152,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ quiz, onRestart, onNav
 
           {/* OPTION B: CUSTOM BUILD YOUR OWN BAG */}
           <div className="bg-[#0a2318] border-2 border-amber-600/70 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative">
-            <div className="absolute -top-3.5 left-8 px-3.5 py-1 rounded-full bg-amber-600 text-white text-xs font-black uppercase tracking-wider shadow-md">
+            <div className="absolute -top-3.5 left-4 right-4 sm:left-8 sm:right-auto px-3.5 py-1 rounded-full bg-amber-600 text-center text-white text-xs font-black uppercase tracking-wider shadow-md">
               Option B: Custom "Build Your Own" Bag
             </div>
 
@@ -176,9 +176,9 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ quiz, onRestart, onNav
                   { role: 'Wedge', prod: matched.modularWedge },
                   { role: 'Matched Balls', prod: matched.modularBall },
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-center justify-between p-3 rounded-2xl bg-slate-950/80 border border-fairway-900">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-slate-900 flex items-center justify-center p-1 border border-fairway-900">
+                  <div key={idx} className="flex min-w-0 flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 p-3 rounded-2xl bg-slate-950/80 border border-fairway-900">
+                    <div className="flex min-w-0 items-center gap-3">
+                      <div className="w-10 h-10 shrink-0 rounded-xl bg-slate-900 flex items-center justify-center p-1 border border-fairway-900">
                         <ProductImage
                           src={item.prod.mediaCdnUrl}
                           alt={item.prod.model}
@@ -186,9 +186,9 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ quiz, onRestart, onNav
                           className="w-full h-full"
                         />
                       </div>
-                      <div>
+                      <div className="min-w-0">
                         <span className="text-[10px] font-mono uppercase text-amber-400 font-bold block">{item.role}</span>
-                        <span className="text-xs font-bold text-white block">{item.prod.brand} {item.prod.model}</span>
+                        <span className="text-xs font-bold text-white break-words block">{item.prod.brand} {item.prod.model}</span>
                       </div>
                     </div>
 
@@ -196,7 +196,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ quiz, onRestart, onNav
                   listing={item.prod}
                   label="Check Price"
                   className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-fairway-950 border border-fairway-800 text-fairway-300 text-xs font-bold hover:bg-fairway-900"
-                  unavailableClassName="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-fairway-950 border border-fairway-800 text-fairway-300 text-xs font-bold "
+                  unavailableClassName="w-full sm:w-auto inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-fairway-950 border border-fairway-800 text-fairway-300 text-xs font-bold "
                   iconClassName="w-3 h-3 text-fairway-400"
                 />
                   </div>

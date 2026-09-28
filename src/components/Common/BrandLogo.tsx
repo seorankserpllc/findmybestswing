@@ -4,12 +4,14 @@ interface BrandLogoProps {
   className?: string;
   size?: 'sm' | 'md' | 'lg';
   showTagline?: boolean;
+  compactOnMobile?: boolean;
 }
 
 export const BrandLogo: React.FC<BrandLogoProps> = ({
   className = '',
   size = 'md',
   showTagline = true,
+  compactOnMobile = false,
 }) => {
   const iconSizes = {
     sm: 'w-8 h-8',
@@ -24,9 +26,9 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
   };
 
   return (
-    <div className={`flex items-center gap-3 select-none ${className}`}>
+    <div className={`flex min-w-0 items-center gap-3 select-none ${className}`}>
       {/* Unique FindMyBestSwing Icon */}
-      <div className={`${iconSizes[size]} shrink-0 rounded-2xl bg-gradient-to-b from-[#093520] to-[#03150c] p-1.5 border border-emerald-600/40 shadow-lg shadow-black/40 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform`}>
+      <div className={`${compactOnMobile ? 'hidden min-[390px]:flex' : 'flex'} ${iconSizes[size]} shrink-0 rounded-2xl bg-gradient-to-b from-[#093520] to-[#03150c] p-1.5 border border-emerald-600/40 shadow-lg shadow-black/40 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform`}>
         <svg viewBox="0 0 64 64" fill="none" className="w-full h-full">
           <defs>
             <linearGradient id="logoSwingArc" x1="0%" y1="100%" x2="100%" y2="0%">
@@ -61,8 +63,8 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
       </div>
 
       {/* Brand Typography */}
-      <div>
-        <div className={`${textSizes[size]} font-extrabold tracking-tight text-white flex items-center gap-1.5 font-sans leading-none`}>
+      <div className="min-w-0">
+        <div className={`${textSizes[size]} whitespace-nowrap font-extrabold tracking-tight text-white flex items-center gap-1.5 font-sans leading-none`}>
           <span>FindMyBest</span>
           <span className="text-emerald-400">Swing</span>
           {size !== 'sm' && (

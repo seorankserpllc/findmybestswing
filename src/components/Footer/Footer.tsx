@@ -8,7 +8,7 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   return (
-    <footer className="bg-[#04150e] border-t border-fairway-900 text-slate-400 text-xs">
+    <footer className="w-full max-w-full overflow-x-clip bg-[#04150e] border-t border-fairway-900 text-slate-400 text-xs">
       
       {/* Top Amazon Associates Disclosure Strip */}
       <div className="border-b border-fairway-950 bg-[#061d13] py-4 px-4 sm:px-6 lg:px-8">
@@ -34,8 +34,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           
           {/* Col 1: Platform Mission */}
-          <div className="space-y-2.5">
-            <BrandLogo size="sm" showTagline={false} />
+          <div className="min-w-0 space-y-2.5">
+            <BrandLogo size="sm" showTagline={false} className="max-w-full" />
             <p className="text-xs text-slate-400 leading-relaxed">
               We help recreational golfers find clubs and balls that match their swing, height, and miss without complicated technical jargon.
             </p>
