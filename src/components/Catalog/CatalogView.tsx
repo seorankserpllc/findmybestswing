@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { PRODUCTS } from '../../data/products';
-import { getAmazonUrl, formatPriceTierLabel } from '../../utils/amazonLinks';
+import { formatPriceTierLabel } from '../../utils/amazonLinks';
 import { ProductImage } from '../Common/ProductImage';
+import { AmazonAvailabilityButton } from '../Common/AmazonAvailabilityButton';
 import { ScorecardBadge } from '../Common/ScorecardBadge';
-import { ExternalLink, Search, Filter, ArrowRight } from 'lucide-react';
+import { Search, Filter, ArrowRight } from 'lucide-react';
 
 interface CatalogViewProps {
   initialCategory?: string;
@@ -45,7 +46,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ initialCategory = 'all
             Golf Club & Ball <span className="text-fairway-400">Directory</span>
           </h1>
           <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-xl">
-            Browse our tested golf gear by category, price, and skill level. All items are available directly on Amazon.
+            Browse golf gear by category, price, and skill level. Purchase links appear only when the current listing has been verified.
           </p>
         </div>
 
@@ -131,15 +132,13 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ initialCategory = 'all
 
             {/* CTAs */}
             <div className="mt-5 pt-4 border-t border-fairway-900 flex items-center gap-2">
-              <a
-                href={getAmazonUrl(prod.asin)}
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-colors shadow-md"
-              >
-                <span>Check Price on Amazon</span>
-                <ExternalLink className="w-3.5 h-3.5 text-white" />
-              </a>
+              <AmazonAvailabilityButton
+                  listing={prod}
+                  label="Check Price on Amazon"
+                  className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-colors shadow-md"
+                  unavailableClassName="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-full bg-slate-800/80 text-white font-bold text-xs transition-colors "
+                  iconClassName="w-3.5 h-3.5 text-white"
+                />
 
               <button
                 onClick={() => onNavigate(`#/product/${prod.slug}`)}

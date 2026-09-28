@@ -1,3 +1,8 @@
+export interface AmazonListing {
+  asin: string;
+  amazonStatus: 'verified' | 'unavailable';
+}
+
 /**
  * Amazon Associates Compliance & Direct Linking Generator
  * 
@@ -13,6 +18,10 @@ export function getAmazonUrl(asin: string, affiliateTag: string = DEFAULT_AFFILI
   const cleanTag = affiliateTag.trim() || DEFAULT_AFFILIATE_TAG;
   const cleanAsin = asin.trim();
   return `https://www.amazon.com/dp/${cleanAsin}?tag=${encodeURIComponent(cleanTag)}`;
+}
+
+export function hasVerifiedAmazonListing(listing: AmazonListing): boolean {
+  return listing.amazonStatus === 'verified' && /^[A-Z0-9]{10}$/.test(listing.asin.trim());
 }
 
 export function formatPriceTierLabel(tier: '$' | '$$' | '$$$' | '$$$$'): string {

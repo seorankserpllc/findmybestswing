@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { Product } from '../../types/domain';
-import { getAmazonUrl, formatPriceTierLabel } from '../../utils/amazonLinks';
+import { formatPriceTierLabel } from '../../utils/amazonLinks';
 import { ProductImage } from '../Common/ProductImage';
+import { AmazonAvailabilityButton } from '../Common/AmazonAvailabilityButton';
 import { ScorecardBadge } from '../Common/ScorecardBadge';
-import { ExternalLink, Check, AlertTriangle, ShieldCheck, ArrowLeft, Calendar, User, Wrench, HelpCircle } from 'lucide-react';
+import { Check, AlertTriangle, ShieldCheck, ArrowLeft, Calendar, User, Wrench, HelpCircle } from 'lucide-react';
 
 interface ProductReviewPageProps {
   product: Product;
@@ -142,17 +143,17 @@ export const ProductReviewPage: React.FC<ProductReviewPageProps> = ({ product, o
           </div>
 
           <div className="pt-2">
-            <a
-              href={getAmazonUrl(product.asin)}
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm transition-all shadow-xl shadow-emerald-950/70"
-            >
-              <span>Check Current Price on Amazon</span>
-              <ExternalLink className="w-4 h-4 text-white" />
-            </a>
+            <AmazonAvailabilityButton
+                  listing={product}
+                  label="Check Current Price on Amazon"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm transition-all shadow-xl shadow-emerald-950/70"
+                  unavailableClassName="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-slate-800/80 text-white font-black text-sm transition-all "
+                  iconClassName="w-4 h-4 text-white"
+                />
             <p className="text-[11px] text-center text-slate-400 mt-2">
-              Verified in-stock Amazon listing • Eligible for Prime delivery
+              {product.amazonStatus === 'verified'
+                ? `Listing verified ${product.amazonCheckedAt || 'recently'}; availability can change.`
+                : 'This listing is unavailable or awaiting re-verification, so no purchase link is shown.'}
             </p>
           </div>
         </div>
@@ -263,18 +264,16 @@ export const ProductReviewPage: React.FC<ProductReviewPageProps> = ({ product, o
       {/* Bottom Sticky Action Card */}
       <div className="bg-slate-950 border border-fairway-800 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>
-          <span className="text-xs text-slate-400">Ready to see today's price?</span>
+          <span className="text-xs text-slate-400">Amazon purchase status</span>
           <div className="text-base font-bold text-white">{product.brand} {product.model}</div>
         </div>
-        <a
-          href={getAmazonUrl(product.asin)}
-          target="_blank"
-          rel="nofollow noopener noreferrer"
-          className="flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition-colors shadow-lg shadow-emerald-950/70"
-        >
-          <span>Check Current Price on Amazon</span>
-          <ExternalLink className="w-4 h-4 text-white" />
-        </a>
+        <AmazonAvailabilityButton
+                  listing={product}
+                  label="Check Current Price on Amazon"
+                  className="flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition-colors shadow-lg shadow-emerald-950/70"
+                  unavailableClassName="flex items-center gap-2 px-6 py-3 rounded-full bg-slate-800/80 text-white font-bold text-sm transition-colors "
+                  iconClassName="w-4 h-4 text-white"
+                />
       </div>
 
     </article>

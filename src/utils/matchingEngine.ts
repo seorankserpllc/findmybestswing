@@ -17,6 +17,7 @@ export interface MatchingResult {
   companionGear: {
     name: string;
     asin: string;
+    amazonStatus: 'verified' | 'unavailable';
     description: string;
     priceTier: '$' | '$$';
   }[];
@@ -78,24 +79,28 @@ export function matchGolfGear(quiz: QuizState, biomechanics: BiomechanicsResult)
     {
       name: 'SKLZ Golf Tempo & Grip Trainer',
       asin: 'B00196U63W',
+      amazonStatus: 'unavailable' as const,
       description: 'Corrects hand placement, builds swing muscle memory, and reinforces smooth takeaway tempo before teeing off.',
       priceTier: '$' as const,
     },
     {
       name: 'Callaway Golf Clean Ball Towel & Wire Club Cleaner',
       asin: 'B07HMV42Y3',
+      amazonStatus: 'unavailable' as const,
       description: 'Essential dual-surface brass/nylon groove brush with magnetic clip to keep iron and wedge grooves sharp for maximum backspin.',
       priceTier: '$' as const,
     },
     {
       name: 'PrecisionPro Golf Laser Rangefinder with Slope',
       asin: 'B08F2TRQ1N',
+      amazonStatus: 'unavailable' as const,
       description: 'Accurate to 1 yard with slope-adjusted elevation calculations to eliminate distance estimation errors.',
       priceTier: '$$' as const,
     },
     {
       name: 'Callaway Org 14 Cart Golf Bag with Full Dividers',
       asin: 'B09R8L6X2Z',
+      amazonStatus: 'unavailable' as const,
       description: '14-way individual full-length club dividers with insulated cooler pocket and water-resistant magnetic valuables storage.',
       priceTier: '$$' as const,
     }

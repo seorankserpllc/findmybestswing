@@ -1,8 +1,8 @@
 ﻿import React, { useEffect } from 'react';
 import { EditorialGuide } from '../../types/domain';
 import { getProductBySlug } from '../../data/products';
-import { getAmazonUrl } from '../../utils/amazonLinks';
 import { ProductImage } from '../Common/ProductImage';
+import { AmazonAvailabilityButton } from '../Common/AmazonAvailabilityButton';
 import { ArrowLeft, Clock, Calendar, User, CheckCircle, AlertCircle, Info, ExternalLink, ShoppingCart, HelpCircle, BookOpenCheck } from 'lucide-react';
 
 interface GuideDetailProps {
@@ -164,7 +164,13 @@ export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onBack, onNavig
                   </button>
                   <div className="grid grid-cols-2 gap-2">
                     <button onClick={() => onNavigate(`#/product/${product.slug}`)} className="py-2 px-2 rounded-xl border border-slate-700 text-slate-200 text-xs font-bold hover:border-emerald-600">Read review</button>
-                    <a href={getAmazonUrl(product.asin)} target="_blank" rel="nofollow sponsored noopener noreferrer" className="flex items-center justify-center gap-1 py-2 px-2 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-bold"><span>Check price</span><ExternalLink className="w-3 h-3" /></a>
+                    <AmazonAvailabilityButton
+                      listing={product}
+                      label="Check price"
+                      className="flex items-center justify-center gap-1 py-2 px-2 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-bold"
+                      unavailableClassName="flex items-center justify-center gap-1 py-2 px-2 rounded-xl text-xs font-bold"
+                      iconClassName="w-3 h-3"
+                    />
                   </div>
                 </div>
               );

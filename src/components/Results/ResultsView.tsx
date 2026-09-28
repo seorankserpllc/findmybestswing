@@ -2,10 +2,11 @@ import React from 'react';
 import { QuizState } from '../../types/domain';
 import { calculateBiomechanics } from '../../utils/physicsCalculator';
 import { matchGolfGear } from '../../utils/matchingEngine';
-import { getAmazonUrl, formatPriceTierLabel } from '../../utils/amazonLinks';
+import { formatPriceTierLabel } from '../../utils/amazonLinks';
 import { ProductImage } from '../Common/ProductImage';
+import { AmazonAvailabilityButton } from '../Common/AmazonAvailabilityButton';
 import { ScorecardBadge } from '../Common/ScorecardBadge';
-import { ExternalLink, CheckCircle, Sparkles, RefreshCw, Cpu, Layers } from 'lucide-react';
+import { CheckCircle, Sparkles, RefreshCw, Cpu, Layers } from 'lucide-react';
 
 interface ResultsViewProps {
   quiz: QuizState;
@@ -133,15 +134,13 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ quiz, onRestart, onNav
 
             {/* CTAs */}
             <div className="mt-8 pt-4 border-t border-fairway-900 flex flex-col sm:flex-row items-center gap-3">
-              <a
-                href={getAmazonUrl(matched.turnkeyProduct.asin)}
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-                className="w-full sm:flex-1 flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm transition-all shadow-lg shadow-emerald-950/70"
-              >
-                <span>Check Price on Amazon</span>
-                <ExternalLink className="w-4 h-4 text-white" />
-              </a>
+              <AmazonAvailabilityButton
+                  listing={matched.turnkeyProduct}
+                  label="Check Price on Amazon"
+                  className="w-full sm:flex-1 flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm transition-all shadow-lg shadow-emerald-950/70"
+                  unavailableClassName="w-full sm:flex-1 flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-slate-800/80 text-white font-black text-sm transition-all "
+                  iconClassName="w-4 h-4 text-white"
+                />
               <button
                 onClick={() => onNavigate(`#/product/${matched.turnkeyProduct.slug}`)}
                 className="w-full sm:w-auto px-4 py-3 rounded-full border border-fairway-800 hover:bg-fairway-900 text-slate-300 text-xs font-semibold"
@@ -193,15 +192,13 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ quiz, onRestart, onNav
                       </div>
                     </div>
 
-                    <a
-                      href={getAmazonUrl(item.prod.asin)}
-                      target="_blank"
-                      rel="nofollow noopener noreferrer"
-                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-fairway-950 border border-fairway-800 text-fairway-300 text-xs font-bold hover:bg-fairway-900"
-                    >
-                      <span>Check Price</span>
-                      <ExternalLink className="w-3 h-3 text-fairway-400" />
-                    </a>
+                    <AmazonAvailabilityButton
+                  listing={item.prod}
+                  label="Check Price"
+                  className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-fairway-950 border border-fairway-800 text-fairway-300 text-xs font-bold hover:bg-fairway-900"
+                  unavailableClassName="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-fairway-950 border border-fairway-800 text-fairway-300 text-xs font-bold "
+                  iconClassName="w-3 h-3 text-fairway-400"
+                />
                   </div>
                 ))}
               </div>
@@ -239,15 +236,13 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ quiz, onRestart, onNav
               </div>
 
               <div className="mt-4 pt-3 border-t border-fairway-900">
-                <a
-                  href={getAmazonUrl(item.asin)}
-                  target="_blank"
-                  rel="nofollow noopener noreferrer"
+                <AmazonAvailabilityButton
+                  listing={item}
+                  label="Check Price on Amazon"
                   className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-fairway-950 border border-fairway-800 hover:bg-fairway-900 text-fairway-300 text-xs font-bold"
-                >
-                  <span>Check Price on Amazon</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-fairway-400" />
-                </a>
+                  unavailableClassName="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-fairway-950 border border-fairway-800 text-fairway-300 text-xs font-bold"
+                  iconClassName="w-3.5 h-3.5 text-fairway-400"
+                />
               </div>
             </div>
           ))}

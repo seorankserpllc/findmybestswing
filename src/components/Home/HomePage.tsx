@@ -1,9 +1,10 @@
 import React from 'react';
 import { PRODUCTS } from '../../data/products';
-import { getAmazonUrl, formatPriceTierLabel } from '../../utils/amazonLinks';
+import { formatPriceTierLabel } from '../../utils/amazonLinks';
 import { ProductImage } from '../Common/ProductImage';
+import { AmazonAvailabilityButton } from '../Common/AmazonAvailabilityButton';
 import { ScorecardBadge } from '../Common/ScorecardBadge';
-import { Sparkles, ArrowRight, ShieldCheck, Flag, CheckCircle2, ExternalLink, Zap, Layers } from 'lucide-react';
+import { Sparkles, ArrowRight, ShieldCheck, Flag, CheckCircle2, Zap, Layers } from 'lucide-react';
 
 interface HomePageProps {
   onNavigate: (route: string) => void;
@@ -34,7 +35,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           </h1>
 
           <p className="text-base sm:text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed font-normal">
-            Stop guessing what to buy. Answer 4 quick questions about how far you hit it and your height. Our engine finds the best golf gear on Amazon that fits you.
+            Stop guessing what to buy. Answer 4 quick questions about how far you hit it and your height. Our engine matches golf gear to your swing, height, needs, and budget.
           </p>
 
           {/* Primary Action Button */}
@@ -59,7 +60,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           <div className="pt-8 flex flex-wrap justify-center items-center gap-6 sm:gap-8 text-xs text-fairway-200/80 font-medium">
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-fairway-400" />
-              <span>Real Amazon In-Stock Items</span>
+              <span>Fit-First Buying Guidance</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-fairway-400" />
@@ -125,11 +126,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-fairway-800/50 pb-4">
           <div>
-            <span className="text-xs font-mono uppercase tracking-widest text-fairway-400 font-bold">TESTED & VERIFIED</span>
+            <span className="text-xs font-mono uppercase tracking-widest text-fairway-400 font-bold">FIT-FIRST REVIEWS</span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-0.5">
-              Popular Picks on Amazon
+              Popular Gear Picks
             </h2>
-            <p className="text-xs text-slate-400">Honest reviews of genuine golf gear you can buy right now.</p>
+            <p className="text-xs text-slate-400">Honest buying guidance, with purchase links shown only after listing verification.</p>
           </div>
 
           <button
@@ -175,15 +176,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               </div>
 
               <div className="mt-5 pt-4 border-t border-fairway-900 flex items-center gap-2">
-                <a
-                  href={getAmazonUrl(prod.asin)}
-                  target="_blank"
-                  rel="nofollow noopener noreferrer"
+                <AmazonAvailabilityButton
+                  listing={prod}
+                  label="Check Price on Amazon"
                   className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-colors shadow-md"
-                >
-                  <span>Check Price on Amazon</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-white" />
-                </a>
+                  unavailableClassName="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-slate-800/80 text-white font-bold text-xs transition-colors "
+                  iconClassName="w-3.5 h-3.5 text-white"
+                />
                 <button
                   onClick={() => onNavigate(`#/product/${prod.slug}`)}
                   className="px-3 py-2.5 rounded-xl border border-fairway-800 hover:bg-fairway-900/60 text-xs font-semibold text-slate-300"

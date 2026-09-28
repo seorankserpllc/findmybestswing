@@ -43,6 +43,8 @@ export interface Product {
   headline: string;
   summary: string;
   asin: string;
+  amazonStatus: 'verified' | 'unavailable';
+  amazonCheckedAt?: string;
   priceTier: PriceTier;
   priceTierDescription: string;
   mediaCdnUrl: string;

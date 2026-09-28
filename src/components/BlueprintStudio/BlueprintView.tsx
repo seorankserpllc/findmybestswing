@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { BLUEPRINTS } from '../../data/blueprints';
 import { getProductBySlug } from '../../data/products';
-import { getAmazonUrl, formatPriceTierLabel } from '../../utils/amazonLinks';
+import { formatPriceTierLabel } from '../../utils/amazonLinks';
 import { ProductImage } from '../Common/ProductImage';
-import { ExternalLink, Layers, Wrench, CheckCircle } from 'lucide-react';
+import { AmazonAvailabilityButton } from '../Common/AmazonAvailabilityButton';
+import { Layers, Wrench, CheckCircle } from 'lucide-react';
 
 interface BlueprintViewProps {
   initialSlug?: string;
@@ -103,7 +104,7 @@ export const BlueprintView: React.FC<BlueprintViewProps> = ({ initialSlug, onNav
               <Wrench className="w-4 h-4 text-amber-400" />
               <span>Recommended Equipment List</span>
             </h3>
-            <span className="text-[11px] text-slate-400">Available on Amazon</span>
+            <span className="text-[11px] text-slate-400">Links shown after verification</span>
           </div>
 
           <div className="space-y-2.5">
@@ -139,15 +140,13 @@ export const BlueprintView: React.FC<BlueprintViewProps> = ({ initialSlug, onNav
                     >
                       Review
                     </button>
-                    <a
-                      href={getAmazonUrl(product.asin)}
-                      target="_blank"
-                      rel="nofollow noopener noreferrer"
-                      className="flex items-center gap-1 px-4 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md"
-                    >
-                      <span>Check Price</span>
-                      <ExternalLink className="w-3 h-3 text-white" />
-                    </a>
+                    <AmazonAvailabilityButton
+                  listing={product}
+                  label="Check Price"
+                  className="flex items-center gap-1 px-4 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md"
+                  unavailableClassName="flex items-center gap-1 px-4 py-1.5 rounded-full bg-slate-800/80 text-white font-bold text-xs "
+                  iconClassName="w-3 h-3 text-white"
+                />
                   </div>
                 </div>
               );

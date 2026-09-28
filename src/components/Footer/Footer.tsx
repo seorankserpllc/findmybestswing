@@ -17,7 +17,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <ShieldCheck className="w-4 h-4 text-fairway-400 shrink-0" />
             <span>
               <strong className="text-white font-semibold">Amazon Affiliate Notice: </strong> 
-              "As an Amazon Associate I earn from qualifying purchases." All product links take you directly to genuine Amazon product pages.
+              "As an Amazon Associate I earn from qualifying purchases." Amazon links are shown only after listing verification; price and availability can change.
             </span>
           </div>
           <button
