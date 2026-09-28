@@ -109,7 +109,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ quiz, onRestart, onNav
                 <div className="space-y-2">
                   <span className="text-xs font-bold uppercase tracking-wider text-fairway-400">{matched.turnkeyProduct.brand}</span>
                   <h3 className="text-xl font-bold text-white leading-snug">{matched.turnkeyProduct.model}</h3>
-                  <ScorecardBadge scorecard={matched.turnkeyProduct.scorecard} compact />
+                  <ScorecardBadge scorecard={matched.turnkeyProduct.scorecard} category={matched.turnkeyProduct.category} compact />
                   <p className="text-xs text-slate-300 mt-2 leading-relaxed">{matched.turnkeyPitch}</p>
                   <div>
                     <span className="text-[11px] font-mono font-bold text-amber-300 bg-amber-950/60 px-2 py-0.5 rounded border border-amber-800/40">

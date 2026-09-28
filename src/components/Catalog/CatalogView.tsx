@@ -34,7 +34,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ initialCategory = 'all
       p.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
       p.summary.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCat && matchesSearch;
-  });
+  }).sort((a, b) => Number(b.amazonStatus === 'verified') - Number(a.amazonStatus === 'verified'));
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8 sm:py-12 space-y-8">
@@ -42,7 +42,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ initialCategory = 'all
       {/* Title & Search bar */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <span className="text-xs font-mono uppercase tracking-widest text-fairway-400 font-bold">VERIFIED REVIEWS</span>
+          <span className="text-xs font-mono uppercase tracking-widest text-fairway-400 font-bold">VERIFIED PRODUCT LISTINGS</span>
           <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mt-0.5">
             Golf Club & Ball <span className="text-fairway-400">Directory</span>
           </h1>
@@ -118,7 +118,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ initialCategory = 'all
                   {prod.model}
                 </h2>
 
-                <ScorecardBadge scorecard={prod.scorecard} compact />
+                <ScorecardBadge scorecard={prod.scorecard} category={prod.category} compact />
 
                 <p className="text-xs text-slate-300 line-clamp-2 mt-1 leading-relaxed">
                   {prod.summary}

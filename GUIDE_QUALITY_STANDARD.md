@@ -106,6 +106,17 @@ Do not add FAQs only to reach a count. Each answer must change a decision, preve
 - Do not hard-code volatile prices unless the source and update mechanism are explicit.
 - Product suggestions must explain fit and limitation; never present them as universal winners.
 
+### Premium product finder gate
+
+- "Premium" means a current or recent flagship product from an established manufacturer, not simply the highest Amazon price.
+- Add a product only after opening the exact Amazon ASIN with a US delivery location and confirming that the detail page exists, the intended variant is selected, a buy box is present and checkout controls are active.
+- Record the exact hand, loft, flex, shaft, club makeup, length, grind, color or ball-number option that the ASIN represents. If a critical variant cannot be verified, do not activate the CTA.
+- Compare the live Amazon price with the manufacturer's current direct price. Exclude listings with unexplained reseller markups that would make the recommendation poor value.
+- Verify specifications and product-positioning claims with the manufacturer's primary product page. Attribute manufacturer performance claims and never convert them into our own test results.
+- Explain who the product fits, who should skip it, what else the buyer still needs and what must be checked before ordering.
+- Never label an editorial score as a lab result, measured test or hands-on review unless that testing was actually completed and documented.
+- Store the Amazon verification date. Recheck availability on a schedule, and disable the purchase link immediately when the exact listing becomes unavailable or changes to the wrong variant.
+
 ### Technical checks
 
 - Never use a hash or URL fragment for page routing. Use descriptive lowercase, hyphenated paths.

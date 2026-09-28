@@ -134,10 +134,10 @@ export const ContactDesk: React.FC = () => {
           <span>EDITORIAL & TECHNICAL DESK</span>
         </div>
         <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-          Contact Our <span className="text-emerald-400">Technical Test Lab</span>
+          Contact Our <span className="text-emerald-400">Product Research Desk</span>
         </h1>
         <p className="text-xs sm:text-sm text-slate-400">
-          Have questions regarding club fitting, spec verification, or TrackMan radar benchmarks? Submit an inquiry directly to our senior editorial team.
+          Have questions about club fit, specification verification, or choosing between products? Send them directly to our editorial team.
         </p>
       </div>
 
@@ -226,7 +226,7 @@ export const ContactDesk: React.FC = () => {
                   className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white focus:outline-none focus:border-emerald-500"
                 >
                   <option value="Equipment & Sizing Question">Equipment & Sizing Question</option>
-                  <option value="TrackMan Test Data Inquiry">TrackMan Test Data Inquiry</option>
+                  <option value="Product Specification Inquiry">Product Specification Inquiry</option>
                   <option value="Dead Link / Out of Stock Report">Dead Link / Out of Stock Report</option>
                   <option value="Editorial & Partnership Request">Editorial & Partnership Request</option>
                 </select>
@@ -301,7 +301,7 @@ export const ContactDesk: React.FC = () => {
           <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 text-xs text-slate-400 space-y-2">
             <strong className="text-white block font-semibold">Editorial Independence Guarantee</strong>
             <p className="leading-relaxed">
-              Our review bench tests all equipment objectively using TrackMan launch monitors. We do not accept manufacturer sponsorship payments in exchange for favorable scorecards.
+              Our editorial assessments use verified manufacturer specifications, exact product variants, fit criteria, limitations, and value. We label hands-on testing only when it was actually completed and documented.
             </p>
           </div>
         </div>

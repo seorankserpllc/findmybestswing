@@ -49,7 +49,7 @@ export const CookieConsentBanner: React.FC = () => {
           <div className="space-y-1">
             <h4 className="text-sm font-bold text-white">Privacy & Cookie Preferences</h4>
             <p className="text-xs text-slate-400 leading-relaxed">
-              We use essential session storage to remember your equipment quiz results, and standard Amazon affiliate attribution cookies to support our independent TrackMan testing lab. We do not sell your personal data.
+              We use essential session storage to remember your equipment quiz results, and standard Amazon affiliate attribution cookies to support our independent editorial work. We do not sell your personal data.
             </p>
           </div>
         </div>

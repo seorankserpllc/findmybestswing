@@ -173,9 +173,9 @@ export const ProductReviewPage: React.FC<ProductReviewPageProps> = ({ product, o
       <section className="space-y-4">
         <h2 className="text-xl font-bold text-white flex items-center gap-2">
           <ShieldCheck className="w-5 h-5 text-fairway-400" />
-          <span>Our 5-Factor Scorecard</span>
+          <span>Editorial 5-Factor Fit Score</span>
         </h2>
-        <ScorecardBadge scorecard={product.scorecard} />
+        <ScorecardBadge scorecard={product.scorecard} category={product.category} />
       </section>
 
       {/* Section 2: Real-World Specifications */}

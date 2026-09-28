@@ -144,7 +144,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {PRODUCTS.slice(0, 3).map((prod) => (
+          {PRODUCTS.filter((prod) => prod.amazonStatus === 'verified').slice(0, 3).map((prod) => (
             <div
               key={prod.id}
               className="bg-[#0a2318] border border-fairway-800/70 rounded-3xl p-5 flex flex-col justify-between hover:border-fairway-500 transition-all shadow-xl group"
@@ -169,7 +169,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <h3 className="text-base font-bold text-white group-hover:text-fairway-300 transition-colors line-clamp-1">
                     {prod.model}
                   </h3>
-                  <ScorecardBadge scorecard={prod.scorecard} compact />
+                  <ScorecardBadge scorecard={prod.scorecard} category={prod.category} compact />
                   <p className="text-xs text-slate-300 line-clamp-2 mt-1 leading-relaxed">
                     {prod.summary}
                   </p>

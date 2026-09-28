@@ -41,12 +41,12 @@ export const LegalDocs: React.FC<LegalDocsProps> = ({ documentType, onBack }) =>
 
             <h2 className="text-lg font-bold text-white pt-2">FTC 16 CFR § 255.5 Compliance Statement</h2>
             <p>
-              In accordance with Federal Trade Commission (FTC) guidelines concerning the use of endorsements and testimonials in advertising, please assume that any outbound product links leading to Amazon.com are affiliate referral links. When you click these links and complete a purchase, our testing laboratory may receive a small commission at zero additional cost to you.
+              In accordance with Federal Trade Commission (FTC) guidelines concerning the use of endorsements and testimonials in advertising, please assume that any outbound product links leading to Amazon.com are affiliate referral links. When you click these links and complete a purchase, we may receive a small commission at zero additional cost to you.
             </p>
 
-            <h2 className="text-lg font-bold text-white pt-2">Independent Laboratory Integrity</h2>
+            <h2 className="text-lg font-bold text-white pt-2">Editorial Independence and Review Method</h2>
             <p>
-              Our editorial testing staff operates with complete independence. Equipment rankings, 5-Factor Scorecards, and TrackMan ballistics benchmarks are determined purely by launch monitor data, radar dispersion, and physical metallurgy analysis. We do not accept sponsored placements, free merchandise in exchange for positive reviews, or manufacturer editorial control.
+              Our editorial assessments use verified manufacturer specifications, exact retail variants, fit criteria, limitations, and value. We do not claim laboratory or hands-on testing unless it was actually completed and documented. We do not accept manufacturer editorial control or payment for favorable scores.
             </p>
 
             <div className="pt-4 border-t border-slate-800 text-xs text-slate-500">

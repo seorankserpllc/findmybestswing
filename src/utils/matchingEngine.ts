@@ -24,56 +24,44 @@ export interface MatchingResult {
 }
 
 export function matchGolfGear(quiz: QuizState, biomechanics: BiomechanicsResult): MatchingResult {
-  // 1. Match Turnkey Product
-  let turnkeySlug = 'callaway-strata-12-piece';
-  let turnkeyPitch = 'The most cohesive, forgiving unbox-and-play complete set for standard stature and high handicappers.';
+  // 1. Match a turnkey set only when the verified configuration fits the shopper.
+  let turnkeySlug = 'callaway-xr-2026-complete-set';
+  let turnkeyPitch = 'A premium, coordinated right-handed set for a standard-height golfer who values one-purchase convenience over component-level fitting.';
 
   if (quiz.height === 'tall' || quiz.height === 'extra-tall') {
     turnkeySlug = 'wilson-profile-platinum';
-    turnkeyPitch = 'Engineered specifically with factory +1.0" extended shaft configurations and upright lie angles to prevent tall player spine fatigue.';
-  } else if (quiz.handicap === 'high-20-plus' && quiz.missTendency === 'slice') {
+    turnkeyPitch = 'We do not currently have a verified premium Amazon complete-set variant for this height. Use the modular recommendation and confirm length and lie in a fitting.';
+  } else if (quiz.height === 'petite') {
     turnkeySlug = 'callaway-strata-12-piece';
-    turnkeyPitch = 'Offset hybrid and lightweight graphite construction engineered to cure extreme slices and elevate ball flight.';
+    turnkeyPitch = 'We do not currently have a verified premium Amazon complete-set variant for this height. Use the modular recommendation and confirm length and lie in a fitting.';
   }
 
   const turnkeyProduct = getProductBySlug(turnkeySlug) || PRODUCTS[0];
 
-  // 2. Match Modular Components
-  // Driver
-  let driverSlug = 'taylormade-stealth-2-driver';
-  if (quiz.missTendency === 'slice' || quiz.handicap === 'high-20-plus') {
-    driverSlug = 'callaway-paradym-driver';
-  }
-  const modularDriver = getProductBySlug(driverSlug) || PRODUCTS[2];
+  // 2. Match premium modular components by the needs the quiz actually captures.
+  const driverSlug =
+    quiz.missTendency === 'slice' || quiz.handicap === 'high-20-plus'
+      ? 'callaway-quantum-max-driver'
+      : 'taylormade-qi4d-max-driver';
+  const modularDriver = getProductBySlug(driverSlug) || PRODUCTS[0];
 
-  // Irons
-  let ironsSlug = 'callaway-rogue-st-max-os-irons';
-  if (quiz.handicap === 'mid-10-19' || quiz.swingSpeed === '95-105') {
-    ironsSlug = 'mizuno-jpx923-hot-metal-irons';
-  }
-  const modularIrons = getProductBySlug(ironsSlug) || PRODUCTS[4];
+  const prefersPlayersDistance =
+    quiz.handicap === 'low-0-9' ||
+    (quiz.handicap === 'mid-10-19' &&
+      ['85-95', '95-105', '105-plus'].includes(quiz.swingSpeed));
+  const ironsSlug = prefersPlayersDistance
+    ? 'taylormade-p790-2025-irons'
+    : 'callaway-quantum-max-os-irons';
+  const modularIrons = getProductBySlug(ironsSlug) || PRODUCTS[0];
 
-  // Putter
-  const modularPutter = getProductBySlug('odyssey-white-hot-og-putter') || PRODUCTS[6];
+  const modularPutter =
+    getProductBySlug('odyssey-ai-dual-s2s-jailbird-putter') || PRODUCTS[0];
+  const modularWedge =
+    getProductBySlug('cleveland-rtz-56-mid-wedge') || PRODUCTS[0];
+  const modularBall =
+    getProductBySlug('titleist-pro-v1-2025-golf-balls') || PRODUCTS[0];
 
-  // Wedge
-  const modularWedge = getProductBySlug('cleveland-cbx-zipcore-wedge') || PRODUCTS[7];
-
-  // Golf Ball (Matched to Swing Speed from our SEO Data!)
-  let ballSlug = 'callaway-supersoft-golf-balls';
-  if (quiz.swingSpeed === 'under-75') {
-    ballSlug = 'callaway-supersoft-golf-balls';
-  } else if (quiz.swingSpeed === '75-85') {
-    ballSlug = 'callaway-supersoft-golf-balls';
-  } else if (quiz.swingSpeed === '85-95') {
-    ballSlug = quiz.greenPriority === 'distance-roll' ? 'taylormade-distance-plus-golf-balls' : 'srixon-soft-feel-golf-balls';
-  } else if (quiz.swingSpeed === '95-105' || quiz.swingSpeed === '105-plus') {
-    ballSlug = 'titleist-pro-v1-golf-balls';
-  }
-  const modularBall = getProductBySlug(ballSlug) || PRODUCTS[8];
-
-  const modularPitch = `Custom modular combination pairing ${modularDriver.model} with ${modularIrons.model} and speed-matched ${modularBall.model} to unlock up to 18 extra carry yards.`;
-
+  const modularPitch = `A premium component bag pairing ${modularDriver.model} with ${modularIrons.model}. Before buying, confirm shaft length and flex, iron lie, wedge gapping, putter length and setup, and the ball's full-bag flight and spin.`;
   // Companion Gear
   const companionGear = [
     {
