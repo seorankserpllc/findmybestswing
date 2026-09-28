@@ -36,3 +36,6 @@ Thumbs.db
 # Temporary Research Reports
 *.csv
 https___*
+
+# Codex local attachments
+.codex-remote-attachments/
