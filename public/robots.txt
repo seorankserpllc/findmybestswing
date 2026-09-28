@@ -1,6 +1,4 @@
-﻿User-agent: *
+User-agent: *
 Allow: /
-Disallow: /results
-Disallow: /wizard
 
 Sitemap: https://mybestswing.com/sitemap.xml
