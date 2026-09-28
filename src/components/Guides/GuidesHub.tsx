@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { EDITORIAL_GUIDES } from '../../data/guides';
 import { BookOpen, Clock, ArrowRight, User } from 'lucide-react';
 
@@ -14,13 +14,13 @@ export const GuidesHub: React.FC<GuidesHubProps> = ({ onNavigate }) => {
       <div className="text-center max-w-3xl mx-auto space-y-3">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-600/50 text-emerald-300 text-xs font-semibold">
           <BookOpen className="w-3.5 h-3.5" />
-          <span>EDITORIAL KNOWLEDGE BASE</span>
+          <span>RESEARCHED BUYING GUIDES</span>
         </div>
         <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-          Technical Golf Fitting <span className="text-emerald-400">Guides</span>
+          Golf Buying <span className="text-emerald-400">Guides</span>
         </h1>
         <p className="text-xs sm:text-sm text-slate-400">
-          Independent biomechanical ballistics research, launch monitor fitting matrices, and equipment diagnostics from our PGA engineering lab.
+          Decision-first equipment guidance built from current manufacturer fitting material, independent comparisons, clear trade-offs, and practical before-you-buy checks.
         </p>
       </div>
 

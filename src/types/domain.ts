@@ -121,7 +121,14 @@ export interface EditorialGuide {
   authorName: string;
   authorTitle: string;
   excerpt: string;
+  verdict: string;
   keyTakeaways: string[];
+  decisionTable: {
+    situation: string;
+    startingPoint: string;
+    whyItFits: string;
+    verifyBeforeBuying: string;
+  }[];
   contentSections: {
     heading: string;
     body: string[];
@@ -130,6 +137,13 @@ export interface EditorialGuide {
       title: string;
       message: string;
     };
+  }[];
+  buyingChecklist: string[];
+  faqs: ProductFAQ[];
+  sources: {
+    name: string;
+    url: string;
+    note: string;
   }[];
   relatedProducts: string[]; // slugs
 }
