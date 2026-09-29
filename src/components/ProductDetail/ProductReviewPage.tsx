@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Product } from '../../types/domain';
-import { formatPriceTierLabel } from '../../utils/amazonLinks';
+import { formatPriceTierLabel, hasVerifiedAmazonListing } from '../../utils/amazonLinks';
 import { ProductImage } from '../Common/ProductImage';
 import { AmazonAvailabilityButton } from '../Common/AmazonAvailabilityButton';
 import { ScorecardBadge } from '../Common/ScorecardBadge';
@@ -152,20 +152,19 @@ export const ProductReviewPage: React.FC<ProductReviewPageProps> = ({ product, o
             <p className="text-xs font-semibold text-slate-200 leading-snug">{product.bestFor}</p>
           </div>
 
+          {hasVerifiedAmazonListing(product) && (
           <div className="pt-2">
             <AmazonAvailabilityButton
                   listing={product}
                   label="Check Current Price on Amazon"
                   className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm transition-all shadow-xl shadow-emerald-950/70"
-                  unavailableClassName="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-slate-800/80 text-white font-black text-sm transition-all "
                   iconClassName="w-4 h-4 text-white"
                 />
             <p className="text-[11px] text-center text-slate-400 mt-2">
-              {product.amazonStatus === 'verified'
-                ? `Listing verified ${product.amazonCheckedAt || 'recently'}; availability can change.`
-                : 'This listing is unavailable or awaiting re-verification, so no purchase link is shown.'}
+              {`Listing verified ${product.amazonCheckedAt || 'recently'}; availability can change.`}
             </p>
           </div>
+          )}
         </div>
       </div>
 
@@ -271,20 +270,21 @@ export const ProductReviewPage: React.FC<ProductReviewPageProps> = ({ product, o
         </div>
       </section>
 
-      {/* Bottom Sticky Action Card */}
+      {/* Only show the purchase panel when there is a usable destination. */}
+      {hasVerifiedAmazonListing(product) && (
       <div className="bg-slate-950 border border-fairway-800 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>
-          <span className="text-xs text-slate-400">Amazon purchase status</span>
+          <span className="text-xs text-slate-400">Ready to compare the current price?</span>
           <div className="text-base font-bold text-white">{product.brand} {product.model}</div>
         </div>
         <AmazonAvailabilityButton
                   listing={product}
                   label="Check Current Price on Amazon"
                   className="flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition-colors shadow-lg shadow-emerald-950/70"
-                  unavailableClassName="flex items-center gap-2 px-6 py-3 rounded-full bg-slate-800/80 text-white font-bold text-sm transition-colors "
                   iconClassName="w-4 h-4 text-white"
                 />
       </div>
+      )}
 
     </article>
   );

@@ -137,7 +137,6 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ initialCategory = 'all
                   listing={prod}
                   label="Check Price on Amazon"
                   className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-colors shadow-md"
-                  unavailableClassName="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-full bg-slate-800/80 text-white font-bold text-xs transition-colors "
                   iconClassName="w-3.5 h-3.5 text-white"
                 />
 

@@ -139,7 +139,6 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ quiz, onRestart, onNav
                   listing={matched.turnkeyProduct}
                   label="Check Price on Amazon"
                   className="w-full sm:flex-1 flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm transition-all shadow-lg shadow-emerald-950/70"
-                  unavailableClassName="w-full sm:flex-1 flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-slate-800/80 text-white font-black text-sm transition-all "
                   iconClassName="w-4 h-4 text-white"
                 />
               <InternalLink
@@ -197,7 +196,6 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ quiz, onRestart, onNav
                   listing={item.prod}
                   label="Check Price"
                   className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-fairway-950 border border-fairway-800 text-fairway-300 text-xs font-bold hover:bg-fairway-900"
-                  unavailableClassName="w-full sm:w-auto inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-fairway-950 border border-fairway-800 text-fairway-300 text-xs font-bold "
                   iconClassName="w-3 h-3 text-fairway-400"
                 />
                   </div>
@@ -241,7 +239,6 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ quiz, onRestart, onNav
                   listing={item}
                   label="Check Price on Amazon"
                   className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-fairway-950 border border-fairway-800 hover:bg-fairway-900 text-fairway-300 text-xs font-bold"
-                  unavailableClassName="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-fairway-950 border border-fairway-800 text-fairway-300 text-xs font-bold"
                   iconClassName="w-3.5 h-3.5 text-fairway-400"
                 />
               </div>

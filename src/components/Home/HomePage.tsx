@@ -181,7 +181,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   listing={prod}
                   label="Check Price on Amazon"
                   className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-colors shadow-md"
-                  unavailableClassName="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-slate-800/80 text-white font-bold text-xs transition-colors "
                   iconClassName="w-3.5 h-3.5 text-white"
                 />
                 <InternalLink

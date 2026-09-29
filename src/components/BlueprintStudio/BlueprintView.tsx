@@ -145,7 +145,6 @@ export const BlueprintView: React.FC<BlueprintViewProps> = ({ initialSlug, onNav
                   listing={product}
                   label="Check Price"
                   className="flex items-center gap-1 px-4 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md"
-                  unavailableClassName="w-full min-[380px]:w-auto flex items-center gap-1 px-4 py-1.5 rounded-full bg-slate-800/80 text-white font-bold text-xs "
                   iconClassName="w-3 h-3 text-white"
                 />
                   </div>

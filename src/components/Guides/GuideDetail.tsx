@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { EditorialGuide } from '../../types/domain';
 import { getProductBySlug } from '../../data/products';
 import { ProductImage } from '../Common/ProductImage';
@@ -104,6 +104,38 @@ export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onBack, onNavig
         <p className="text-base sm:text-lg text-white leading-relaxed">{guide.verdict}</p>
       </section>
 
+      {guide.relatedProducts.length > 0 && (
+        <section aria-labelledby="products-heading" className="space-y-4">
+          <div className="max-w-4xl">
+            <h2 id="products-heading" className="text-xl font-bold text-white">Compare products for this decision</h2>
+            <p className="mt-1 text-xs text-slate-400">Compare the exact specifications against your needs. As an Amazon Associate, we earn from qualifying purchases.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {guide.relatedProducts.map((slug) => {
+              const product = getProductBySlug(slug);
+              if (!product) return null;
+              return (
+                <div key={product.id} className="min-w-0 bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between">
+                  <InternalLink href={`/products/${product.slug}`} onNavigate={onNavigate} className="min-w-0 text-left flex items-center gap-4 mb-4 group">
+                    <div className="w-20 h-24 sm:w-24 sm:h-28 bg-slate-950 rounded-xl p-2 flex items-center justify-center border border-slate-800 shrink-0"><ProductImage src={product.mediaCdnUrl} alt={product.model} category={product.fallbackIcon} className="w-full h-full" /></div>
+                    <div className="min-w-0"><span className="text-[10px] font-bold uppercase text-emerald-400 block">{product.brand}</span><h3 className="text-base font-bold text-white group-hover:text-emerald-300 break-words">{product.model}</h3></div>
+                  </InternalLink>
+                  <div className="flex flex-wrap gap-2">
+                    <InternalLink href={`/products/${product.slug}`} onNavigate={onNavigate} className="flex-1 min-w-0 flex items-center justify-center py-3 px-3 rounded-xl border border-slate-700 text-slate-200 text-xs font-bold hover:border-emerald-600">View product details</InternalLink>
+                    <AmazonAvailabilityButton
+                      listing={product}
+                      label="Check price on Amazon"
+                      className="flex-1 flex items-center justify-center gap-1 py-3 px-3 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-bold"
+                      iconClassName="w-3 h-3"
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
       <section aria-labelledby="takeaways-heading" className="max-w-4xl bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-4">
         <h2 id="takeaways-heading" className="text-sm font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-2"><CheckCircle className="w-4 h-4" />What matters before you spend</h2>
         <ul className="space-y-2.5 text-sm text-slate-200">
@@ -116,7 +148,7 @@ export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onBack, onNavig
           <h2 id="decision-table-heading" className="text-2xl font-bold text-white">Choose your starting point</h2>
           <p className="mt-2 text-sm text-slate-400">Match the row to your situation, then complete the verification step before buying.</p>
         </div>
-        <div className="overflow-x-auto rounded-2xl border border-slate-800">
+        <div role="region" aria-label="Buying decision comparison" tabIndex={0} className="overflow-x-auto rounded-2xl border border-slate-800">
           <table className="w-full min-w-[820px] text-left text-sm">
             <thead className="bg-slate-900 text-slate-200">
               <tr><th className="p-4 font-bold">Your situation</th><th className="p-4 font-bold">Start here</th><th className="p-4 font-bold">Why</th><th className="p-4 font-bold">Verify before buying</th></tr>
@@ -168,39 +200,6 @@ export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onBack, onNavig
           ))}
         </div>
       </section>
-
-      {guide.relatedProducts.length > 0 && (
-        <section aria-labelledby="products-heading" className="pt-8 border-t border-slate-800 space-y-4">
-          <div className="max-w-4xl">
-            <h2 id="products-heading" className="text-xl font-bold text-white">Products mentioned in this guide</h2>
-            <p className="mt-1 text-xs text-slate-400">Use the fit guidance above first. These links are options to compare, not proof that one model fits every reader.</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {guide.relatedProducts.map((slug) => {
-              const product = getProductBySlug(slug);
-              if (!product) return null;
-              return (
-                <div key={product.id} className="bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between">
-                  <InternalLink href={`/products/${product.slug}`} onNavigate={onNavigate} className="text-left flex items-center gap-3 mb-3 group">
-                    <div className="w-12 h-12 bg-slate-950 rounded-xl p-1 flex items-center justify-center border border-slate-800 shrink-0"><ProductImage src={product.mediaCdnUrl} alt={product.model} category={product.fallbackIcon} className="w-full h-full" /></div>
-                    <div><span className="text-[10px] font-bold uppercase text-emerald-400 block">{product.brand}</span><h3 className="text-xs font-bold text-white group-hover:text-emerald-300 line-clamp-2">{product.model}</h3></div>
-                  </InternalLink>
-                  <div className="grid grid-cols-2 gap-2">
-                    <InternalLink href={`/products/${product.slug}`} onNavigate={onNavigate} className="flex items-center justify-center py-2 px-2 rounded-xl border border-slate-700 text-slate-200 text-xs font-bold hover:border-emerald-600">Read review</InternalLink>
-                    <AmazonAvailabilityButton
-                      listing={product}
-                      label="Check price"
-                      className="flex items-center justify-center gap-1 py-2 px-2 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-bold"
-                      unavailableClassName="flex items-center justify-center gap-1 py-2 px-2 rounded-xl text-xs font-bold"
-                      iconClassName="w-3 h-3"
-                    />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </section>
-      )}
 
       <section aria-labelledby="sources-heading" className="max-w-4xl pt-8 border-t border-slate-800 space-y-4">
         <h2 id="sources-heading" className="text-xl font-bold text-white flex items-center gap-2"><BookOpenCheck className="w-5 h-5 text-emerald-400" />Sources and fact-check notes</h2>
