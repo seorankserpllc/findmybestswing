@@ -911,8 +911,9 @@ export const PRODUCTS: Product[] = [
     headline: 'Premium Zero-Torque Mallet for a Face-Stable Stroke',
     summary: 'A center-shafted, toe-up Jailbird mallet designed to resist face rotation through the stroke. This exact Amazon variant is right-handed, 35 inches, with the Jailbird head and pistol grip.',
     asin: 'B0FQ68VSY4',
-    amazonStatus: 'verified',
-    amazonCheckedAt: 'September 28, 2026',
+    // Listing shaft/grip conflict with Odyssey specs; exact build is not verified.
+    amazonStatus: 'unavailable',
+    amazonCheckedAt: 'September 30, 2026',
     priceTier: '$$$$',
     priceTierDescription: 'Premium zero-torque putter; compare Amazon with Odyssey direct before buying',
     mediaCdnUrl: 'https://m.media-amazon.com/images/I/51NC7HVDsQL._AC_SX522_.jpg',
