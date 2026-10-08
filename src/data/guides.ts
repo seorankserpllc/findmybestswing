@@ -1,6 +1,9 @@
 ﻿import { EditorialGuide } from '../types/domain';
 
+import { PUTTER_LENGTH_GUIDE } from './putterLengthGuide';
+
 export const EDITORIAL_GUIDES: EditorialGuide[] = [
+  PUTTER_LENGTH_GUIDE,
   {
     id: 'driver-shaft-flex-swing-speed-matrix',
     slug: 'driver-shaft-flex-swing-speed-matrix',

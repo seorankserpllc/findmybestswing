@@ -27,8 +27,8 @@ export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onBack, onNavig
           description: guide.excerpt,
           url: pageUrl,
           mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
-          datePublished: '2026-09-28',
-          dateModified: '2026-09-28',
+          datePublished: guide.publishedDateIso ?? '2026-09-28',
+          dateModified: guide.reviewedDateIso ?? guide.publishedDateIso ?? '2026-09-28',
           author: { '@type': 'Organization', name: 'FindMyBestSwing Editorial Team' },
           publisher: {
             '@type': 'Organization',
@@ -103,6 +103,29 @@ export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onBack, onNavig
         <h2 id="verdict-heading" className="text-sm font-bold uppercase tracking-wider text-emerald-300 mb-3">The buying verdict</h2>
         <p className="text-base sm:text-lg text-white leading-relaxed">{guide.verdict}</p>
       </section>
+
+      {guide.purchaseOptions && guide.purchaseOptions.length > 0 && (
+        <section aria-labelledby="purchase-options-heading" className="space-y-4">
+          <h2 id="purchase-options-heading" className="text-xl font-bold text-white">A stock option after your length test</h2>
+          <p className="max-w-4xl text-sm text-slate-300">These are two configurations of the same model, not two independent winners. Buy only the build that fits. As an Amazon Associate, we earn from qualifying purchases.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {guide.purchaseOptions.map((option) => (
+              <div key={option.asin} className="min-w-0 bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col gap-4">
+                <img src={option.imageUrl} alt={option.name} className="w-full h-44 object-contain bg-white rounded-xl" loading="lazy" />
+                <h3 className="text-lg font-bold text-white">{option.name}</h3>
+                <p className="text-sm text-slate-300">{option.configuration}</p>
+                <dl className="space-y-3 text-sm text-slate-300 flex-1">
+                  <div><dt className="font-bold text-emerald-300">Consider it if</dt><dd>{option.bestFor}</dd></div>
+                  <div><dt className="font-bold text-white">Trade-off</dt><dd>{option.tradeOff}</dd></div>
+                  <div><dt className="font-bold text-white">Skip it if</dt><dd>{option.skipIf}</dd></div>
+                </dl>
+                <AmazonAvailabilityButton listing={option} label="Check this build on Amazon" className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white text-sm font-bold" />
+                <p className="text-xs text-slate-400">Listing checked {option.amazonCheckedAt}. ASIN: {option.asin}.</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {guide.relatedProducts.length > 0 && (
         <section aria-labelledby="products-heading" className="space-y-4">
@@ -203,7 +226,7 @@ export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onBack, onNavig
 
       <section aria-labelledby="sources-heading" className="max-w-4xl pt-8 border-t border-slate-800 space-y-4">
         <h2 id="sources-heading" className="text-xl font-bold text-white flex items-center gap-2"><BookOpenCheck className="w-5 h-5 text-emerald-400" />Sources and fact-check notes</h2>
-        <p className="text-xs text-slate-400">We favor manufacturer fitting material for product-specific claims and use independent guides to identify buyer questions. Sources were checked on September 28, 2026.</p>
+        <p className="text-xs text-slate-400">We favor manufacturer fitting material for product-specific claims and use independent guides to identify buyer questions. Sources were checked on {guide.publishedDate}.</p>
         <ul className="space-y-3">
           {guide.sources.map((source) => (
             <li key={source.url} className="text-sm">

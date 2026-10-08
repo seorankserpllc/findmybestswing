@@ -120,6 +120,19 @@ export interface EditorialGuide {
   subtitle: string;
   readingTimeMinutes: number;
   publishedDate: string;
+  publishedDateIso?: string;
+  reviewedDateIso?: string;
+  purchaseOptions?: {
+    name: string;
+    imageUrl: string;
+    configuration: string;
+    bestFor: string;
+    tradeOff: string;
+    skipIf: string;
+    asin: string;
+    amazonStatus: 'verified' | 'unavailable';
+    amazonCheckedAt: string;
+  }[];
   authorName: string;
   authorTitle: string;
   excerpt: string;
