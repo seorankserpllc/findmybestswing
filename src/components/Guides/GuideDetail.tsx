@@ -106,8 +106,8 @@ export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onBack, onNavig
 
       {guide.purchaseOptions && guide.purchaseOptions.length > 0 && (
         <section aria-labelledby="purchase-options-heading" className="space-y-4">
-          <h2 id="purchase-options-heading" className="text-xl font-bold text-white">A stock option after your length test</h2>
-          <p className="max-w-4xl text-sm text-slate-300">These are two configurations of the same model, not two independent winners. Buy only the build that fits. As an Amazon Associate, we earn from qualifying purchases.</p>
+          <h2 id="purchase-options-heading" className="text-xl font-bold text-white">{guide.purchaseOptionsHeading ?? 'A stock option after your length test'}</h2>
+          <p className="max-w-4xl text-sm text-slate-300">{guide.purchaseOptionsIntro ?? 'These are two configurations of the same model, not two independent winners. Buy only the build that fits.'} As an Amazon Associate, we earn from qualifying purchases.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {guide.purchaseOptions.map((option) => (
               <div key={option.asin} className="min-w-0 bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col gap-4">

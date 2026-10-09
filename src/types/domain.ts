@@ -122,6 +122,8 @@ export interface EditorialGuide {
   publishedDate: string;
   publishedDateIso?: string;
   reviewedDateIso?: string;
+  purchaseOptionsHeading?: string;
+  purchaseOptionsIntro?: string;
   purchaseOptions?: {
     name: string;
     imageUrl: string;

@@ -1,8 +1,10 @@
 ﻿import { EditorialGuide } from '../types/domain';
 
 import { PUTTER_LENGTH_GUIDE } from './putterLengthGuide';
+import { BEGINNER_WEDGE_GUIDE } from './beginnerWedgeGuide';
 
 export const EDITORIAL_GUIDES: EditorialGuide[] = [
+  BEGINNER_WEDGE_GUIDE,
   PUTTER_LENGTH_GUIDE,
   {
     id: 'driver-shaft-flex-swing-speed-matrix',

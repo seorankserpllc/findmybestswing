@@ -1,0 +1,125 @@
+import { EditorialGuide } from '../types/domain';
+
+export const BEGINNER_WEDGE_GUIDE: EditorialGuide = {
+  id: 'what-wedges-should-a-beginner-carry',
+  slug: 'what-wedges-should-a-beginner-carry',
+  title: 'What Wedges Should a Beginner Carry? Buy the Missing Shot First',
+  subtitle: 'Choose between a sand wedge, a gap wedge and keeping what you own before paying for a three-wedge set.',
+  readingTimeMinutes: 9,
+  publishedDate: 'October 9, 2026',
+  publishedDateIso: '2026-10-09',
+  reviewedDateIso: '2026-10-09',
+  authorName: 'FindMyBestSwing Editorial Team',
+  authorTitle: 'Source-based buying guidance',
+  excerpt: 'Start with your current pitching wedge, then buy the wedge that solves a recurring shot: sand or gap first, lob later. Includes loft examples, budget trade-offs and a practice test.',
+  verdict: 'For a beginner with only a pitching wedge, start by trying a 54° or 56° sand wedge for greenside and bunker shots. If you already have a usable sand wedge, test whether a gap wedge fills a distance you repeatedly need. Keep both if they cover your shots. Delay a lob wedge or a matched three-wedge set until you can explain what each extra club will do. Check the loft of your pitching wedge before choosing any numbers.',
+  purchaseOptionsHeading: 'One sand-wedge option to try',
+  purchaseOptionsIntro: 'This is a candidate for the sand-wedge job, not a complete wedge set or a universal beginner recommendation. Use the comparison below before ordering.',
+  purchaseOptions: [
+    {
+      name: 'Cleveland CBZ Tour Satin — 56° steel',
+      imageUrl: 'https://us.dunlopsports.com/on/demandware.static/-/Sites-masterCatalog_DunlopSports/default/dw164481b3/images/large/CG25-Clubs-Wedges-CBZ-1.jpg',
+      configuration: 'CBZ (2025), traditional grooves; right hand; 56° loft, 14° bounce, S-shaped sole; Tour Satin. Stock steel build, standard grip, one wedge. Part 11243608. Flex-label note below.',
+      bestFor: 'A right-handed beginner whose trial favors a cavity-back sand wedge for bunker and ordinary greenside shots.',
+      tradeOff: 'The sole is fixed for this loft. It may be a poor match for your firm lies or delivery, and buying it will not fill a separate full-shot distance gap.',
+      skipIf: 'You need left hand, graphite, a custom length or lie, less bounce, or already have a sand wedge that performs the same job.',
+      asin: 'B0FLFR2RHD',
+      amazonStatus: 'verified',
+      amazonCheckedAt: '2026-10-09',
+    },
+  ],
+  keyTakeaways: [
+    'This guide is for a first wedge purchase or a beginner improving a starter set. The order of purchase matters more than owning every wedge category.',
+    'Use actual lofts and your carry distances. A P, A, G or S marking is not a complete buying specification.',
+    'A loft gap and a bunker problem are different needs. One new wedge may address one without addressing the other.',
+    'Our recommendations and practice protocol are editorial guidance based on the sources below. We have not performed hands-on testing of these clubs.',
+  ],
+  decisionTable: [
+    { situation: 'Pitching wedge only; no reliable bunker option', startingPoint: 'Demo a 54° or 56° sand wedge', whyItFits: 'Adds a club to learn greenside and bunker shots with. The cost is another club to practice; skip a blind purchase if the sole does not suit your course.', verifyBeforeBuying: 'Try ordinary turf and your usual sand, then check the gap back to your pitching wedge.' },
+    { situation: 'Pitching and sand wedges; a recurring distance between them', startingPoint: 'Compare a gap wedge with a controlled partial pitching-wedge shot', whyItFits: 'A gap wedge can supply a distinct stock carry. Skip it if its normal carry overlaps what you already have.', verifyBeforeBuying: 'Compare typical carries and the spread of misses, not the longest shot from each club.' },
+    { situation: 'Very limited spending room', startingPoint: 'Keep or borrow first; buy one useful club', whyItFits: 'Preserves money for instruction and practice. The compromise is fewer stock shot choices; do not buy three clubs just because the unit price is lower.', verifyBeforeBuying: 'Set a total ceiling including tax, shipping, grip work and any fitting or return cost.' },
+    { situation: 'Frequent heavy contact, soft turf or soft sand', startingPoint: 'Trial a sole that resists digging', whyItFits: 'Higher-bounce designs are a manufacturer-supported starting point. They do not remove the need to learn contact; skip a purchase based only on a bounce number.', verifyBeforeBuying: 'Have a coach or fitter observe delivery and compare actual results from the relevant lies.' },
+    { situation: 'Firm ground, compacted sand or shallow delivery', startingPoint: 'Compare sole and bounce alternatives outdoors', whyItFits: 'Lower-bounce options may suit these conditions. The trade-off can be less help against digging elsewhere; skip the assumption that every beginner needs maximum bounce.', verifyBeforeBuying: 'Test both the difficult firm lie and an ordinary lie so you do not optimize for only one shot.' },
+    { situation: 'Tempted by a 60° wedge or a 52°/56°/60° set', startingPoint: 'Name the missing shot before buying', whyItFits: 'A lob wedge adds a high-loft option but also another purchase and practice task. Skip it if a lower-loft club already produces a usable result.', verifyBeforeBuying: 'Compare the ordinary miss as well as the best shot; check that the lowest loft fits the pitching wedge.' },
+  ],
+  contentSections: [
+    {
+      heading: 'First, inventory the wedges already in your bag',
+      body: [
+        'Write down the exact iron-set model and generation, each wedge marking and any known alterations. Look up the manufacturer’s loft table. If the club is used or has been bent, ask a club builder to measure it. Do not order a gap wedge while the pitching-wedge loft is still a guess.',
+        'Record carry to the first landing point separately from rollout. Use the ball you normally play in a practice setting. If your strikes produce a very wide range, record that honestly: an apparent distance hole may be inconsistent contact rather than a missing club.',
+        'Two wedges can be a workable learning setup; three can be useful when the third fills a real gap. The USGA permits up to 14 clubs, including the putter, and allows fewer. That is a ceiling for the whole bag, not a shopping target.',
+      ],
+    },
+    {
+      heading: 'Choose lofts from your pitching wedge, not from a boxed set',
+      body: [
+        'Vokey recommends 4–6° of separation as a fitting starting point. Its fitting process includes distance gapping, so treat that spacing as a shortlist rather than a promised yardage difference. A beginner buying in stages does not need to fill every possible interval immediately.',
+        'For illustration, a 44° pitching wedge with a 50° gap wedge and 56° sand wedge has 6° steps. A 46° pitching wedge with 52° and 56° has 6° and 4° steps. These are arithmetic examples to try, not tested setups or a prescription for every player.',
+        'With a 42° pitching wedge, jumping straight to 52° leaves a 10° interval. Investigate a closer loft first if the problem is a full-shot gap. If the immediate problem is bunker play and you can afford only one club, a suitable sand wedge may still be the better first purchase; accept that it does not complete your distance coverage.',
+        'Choose 50° versus 52°, or 54° versus 56°, by checking the neighboring clubs and comparing carry. Do not replace a useful club merely to make the numbers look evenly spaced.',
+      ],
+    },
+    {
+      heading: 'Fit the sole to the shot and ground',
+      body: [
+        'Loft is the face angle; bounce and the shape of the sole affect how the club meets the ground. Vokey’s guidance associates higher bounce with softer conditions and steeper delivery, and lower bounce with firmer conditions and shallower delivery. These are starting tendencies, not a cure for a specific miss.',
+        'Grind names describe a manufacturer’s sole designs. Do not assume an S or a Mid label means the same thing across brands. Compare the complete head on turf and sand. A clean strike off a shop mat alone does not establish that the sole works from your usual lies.',
+        'If repeated heavy or thin contact continues across suitable demo clubs, spend on an observed lesson or fitting before another wedge. Changing equipment and technique at the same time makes it difficult to know what helped.',
+      ],
+    },
+    {
+      heading: 'What the featured CBZ build does—and does not—offer',
+      body: [
+        'Cleveland positions CBZ as a cavity-back, game-improvement wedge. The featured traditional-groove 56° has an S-shaped sole and 14° bounce. Its published stock length is 35.5 inches and lie is 64°. The standard steel shaft is KBS HI-REV 2.0 115, with a standard Golf Pride Tour Velvet 360 grip. These are manufacturer specifications, not our measured results.',
+        'Flex-label note: Cleveland calls the stock flex “Wedge”; Amazon displays “Stiff.” We matched Amazon’s part 11243608 to Cleveland’s rendered right-hand, 56°, steel stock configuration with that same SKU. This identifies the build; it does not mean those flex labels are interchangeable across products. Order by the complete configuration and part number.',
+        'Consider it when the cavity-back layout and sole work in your trial. Skip this stock build if you need a different hand, shaft, length, lie or sole. One wedge is included; no extra club or accessory bundle is promised. There is no evidence here that paying for this model will lower your score compared with a suitable wedge you already own.',
+      ],
+    },
+    {
+      heading: 'Spend according to the job: keep, used, stock or custom',
+      body: [
+        'Keep what you own when it supplies a repeatable shot. This costs nothing, but it will not add a missing carry or a different sole. Skip this path when a supervised comparison demonstrates a meaningful fit problem.',
+        'A used wedge or a matching set gap wedge can make sense within a tight budget. Ask for clear face, sole and shaft photos, measured loft and length, and alteration history. Include grip replacement and shipping in the quote. Skip an unreturnable bargain when its build or condition remains uncertain; age alone does not tell you how it was used.',
+        'A new stock wedge gives you a defined build without paying for unnecessary customization. The compromise is accepting its available dimensions and sole. A premium model earns the extra spend only if your trial shows a useful advantage or it supplies a specification you need.',
+        'Custom fitting is a sensible next step when standard lengths feel awkward, weight is uncomfortable or the results conflict. It adds cost and may restrict returns. Ask for the proposed build and total price in writing before ordering, and do not assume a taller player needs the same extension in every club.',
+      ],
+    },
+    {
+      heading: 'A practical comparison before you buy',
+      body: [
+        '1. Define the job. Write one sentence such as “a repeatable shot between my pitching and sand wedges” or “a usable escape from our practice bunker.” Bring your current clubs and normal ball model. Ask permission to use the practice area and confirm that demo or return terms allow the intended trial.',
+        '2. Establish a baseline. After warming up, hit two alternating groups of five shots with your current option and the candidate. For a gap wedge, compare carry to the same target with comfortable swings. For a sand wedge, compare ordinary chips or pitches and bunker shots. These counts are a suggested shopping exercise, not a validated statistical test.',
+        '3. Keep the ordinary misses. Record carry, rollout, heavy or thin contact and whether the ball finishes in a usable area. Mark an interrupted attempt separately, but do not delete poor shots simply because they make a club look worse. Change one specification at a time where possible.',
+        '4. Repeat on another day or in another relevant lie. A winner on soft sand may not be your winner on firm turf. Buy when the candidate consistently does the stated job within budget. If the result is tied, keep the current club or choose the less costly suitable build; if it is unclear, ask a fitter.',
+      ],
+    },
+  ],
+  buyingChecklist: [
+    'Confirm your current pitching-wedge loft, sand-wedge loft and any existing set gap wedge.',
+    'Write down the missing shot and typical carries before choosing 50°, 52°, 54° or 56°.',
+    'Check the sole on representative turf and sand, keeping normal misses in the comparison.',
+    'Set a complete spending limit, including fitting, tax, shipping, grip changes and return costs.',
+    'Put brand, model, generation, hand, loft, bounce, sole, finish, shaft model and flex, length, lie and grip on the order.',
+    'Confirm one club versus a set, included accessories, seller, delivery and whether use or customization affects returns.',
+    'On arrival, compare the head markings, shaft label, grip and manufacturer part number with the saved order before playing or modifying it.',
+  ],
+  faqs: [
+    { question: 'Do beginners need 52°, 56° and 60° wedges?', answer: 'No. First check your pitching wedge and any sand wedge already in the bag. Buy a gap wedge only for a useful distance gap and a lob wedge only for an identified shot. A matching set can cost more overall even if each club looks inexpensive.' },
+    { question: 'Should I buy a gap wedge or sand wedge first?', answer: 'If you have no usable bunker club, try a sand wedge first. If your sand wedge already works but a recurring approach distance falls between it and your pitching wedge, compare a gap wedge against a partial pitching-wedge shot.' },
+    { question: 'Is a 50° or 52° gap wedge better?', answer: 'Neither is universally better. Check the lofts on both sides and compare your normal carry distances. A lower-loft pitching wedge may call for a closer gap-wedge loft than a prepacked 52° set offers.' },
+    { question: 'Should my sand wedge be 54° or 56°?', answer: 'Try both if they fit the surrounding lofts. Compare bunker results, useful carry and ordinary misses with suitable soles. Two degrees on the label does not establish which complete club works better for your delivery.' },
+    { question: 'Should I start with a 60° or 62° lob wedge?', answer: 'Our buying recommendation is to delay either until a recurring shot justifies it. Demo the candidate against your sand wedge on that shot. Keep it only if the normal result improves enough to justify the money and practice time.' },
+    { question: 'Will more bounce stop me chunking chips?', answer: 'It may help the club resist digging in suitable conditions, but it is not a guaranteed fix. Have someone observe your contact and compare soles on your course conditions before diagnosing the problem from one bad shot.' },
+    { question: 'Is a premium wedge worth it for a beginner?', answer: 'Only if the complete build supplies something useful in your trial or a specification you need. A usable existing or used wedge can be better value. Spend first on the missing job, a suitable fit and an opportunity to practice.' },
+    { question: 'Can I bend an existing wedge instead of buying another?', answer: 'Ask the manufacturer or a qualified builder whether that exact head can be adjusted and what the finished specifications would be. Get a quote and check warranty implications. Retest the altered club; do not treat bending as a guaranteed substitute for a different sole or build.' },
+    { question: 'What changes for seniors, left-handed or taller beginners?', answer: 'Use comfort, delivery and the required build to guide the trial. Age does not select a loft or shaft for you. Left-handed buyers need the correct hand; anyone needing a different length, lie or weight should compare a fitted build instead of accepting this featured stock configuration.' },
+  ],
+  sources: [
+    { name: 'Cleveland CBZ specifications and stock configurator', url: 'https://us.dunlopsports.com/cleveland-golf/clubs/wedges/cbz-tour-satin-wedge/MCBZTS.html', note: 'Primary source for head, sole, dimensions, shaft, grip and stock SKU 11243608. Manufacturer positioning is attributed; no independent performance result is claimed.' },
+    { name: 'Vokey wedge fitting process', url: 'https://www.vokey.com/nav/get-custom-fit.aspx', note: 'Primary manufacturer guidance for 4–6° starting separation and distance-gapping assessment. The illustrative loft sequences above are editorial examples.' },
+    { name: 'Vokey bounce and grind guidance', url: 'https://www.vokey.com/nav/wedgebounce.aspx', note: 'Primary manufacturer guidance connecting bounce with delivery and course conditions, used as a trial starting point.' },
+    { name: 'USGA: clubs and the 14-club limit', url: 'https://www.usga.org/content/usga/home-page/rules-hub/topics/clubs.html', note: 'Governing-body guidance: up to 14 clubs, with fewer permitted. There is no required wedge count.' },
+  ],
+  relatedProducts: [],
+};
