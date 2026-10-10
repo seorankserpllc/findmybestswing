@@ -1,0 +1,123 @@
+import { EditorialGuide } from '../types/domain';
+
+export const TWENTY_HANDICAP_IRONS_GUIDE: EditorialGuide = {
+  id: 'best-irons-for-20-handicap',
+  slug: 'best-irons-for-20-handicap',
+  title: 'Best Irons for a 20 Handicap: Choose the Set You Can Use',
+  subtitle: 'Compare keeping your irons, a game-improvement set and a higher-launch build before paying for distance you cannot control.',
+  readingTimeMinutes: 10,
+  publishedDate: 'October 10, 2026',
+  publishedDateIso: '2026-10-10',
+  reviewedDateIso: '2026-10-10',
+  authorName: 'FindMyBestSwing Editorial Team',
+  authorTitle: 'Source-based buying guidance',
+  excerpt: 'A 20 handicap does not select an iron set. Start with game-improvement heads, compare your ordinary misses, and check long-iron and wedge gaps before buying.',
+  verdict: 'For a golfer around a 20 handicap replacing irons, start by comparing a game-improvement set with the clubs you own. Try a higher-launch build if your longer irons fly low or bunch together in carry distance. Consider a compact head only if it preserves useful results on your ordinary misses. Keep your current set if the alternatives do not solve a repeatable problem. Handicap alone is not a reason to buy new irons, a softer shaft or a full 5-iron-to-wedge package.',
+  purchaseOptionsHeading: 'One higher-launch set to put on your demo list',
+  purchaseOptionsIntro: 'This is a conditional stock-build example, not a tested ranking of every iron or a recommendation for every 20-handicap player. Compare it with your current clubs using the protocol below.',
+  purchaseOptions: [{
+    name: 'TaylorMade Qi Max HL — steel regular, 5–PW/AW',
+    imageUrl: 'https://www.taylormadegolf.com/dw/image/v2/AAIS_PRD/on/demandware.static/-/Sites-tmag-master-catalog/en_US/v1791605492724/zoom/M21289_zoom_D.jpg?sw=900&sh=900&sm=fit',
+    configuration: '2026 Qi Max HL; right hand; KBS Max Lite steel, Regular; Satin Chrome; standard stock build and standard grip. One seven-club set: 5, 6, 7, 8, 9, PW, AW. Manufacturer SKU M2133207. Manufacturer head image; lofts below.',
+    bestFor: 'A player whose demo favors this larger head and higher-launch design, and who can use all seven clubs in this exact build.',
+    tradeOff: 'The larger profile may not suit your eye or turf contact. The included 5-iron is wasted spending if it overlaps your 6-iron; the AW does not complete your greenside setup.',
+    skipIf: 'You need left hand, graphite, a different flex, custom length or lie, fewer irons, or your existing set performs just as usefully.',
+    asin: 'B0G2TBP6DC',
+    amazonStatus: 'verified',
+    amazonCheckedAt: '2026-10-10',
+  }],
+  keyTakeaways: [
+    'This guide helps a golfer around 20 handicap decide whether to replace an iron set, which type to demo and what the final order should contain.',
+    'Separate iron contact from the rest of your score. A driver penalty or missed short putt is not evidence that you need different irons.',
+    'Judge the carry pattern, direction and usable flight across the set. The longest 7-iron shot is not a purchase verdict.',
+    'The recommendations and test sequence are editorial guidance. We have not performed hands-on or launch-monitor testing of the featured set, and promise no handicap or yardage improvement.',
+  ],
+  decisionTable: [
+    { situation: 'Iron contact is serviceable; most lost shots come elsewhere', startingPoint: 'Keep your irons and diagnose the costly shots', whyItFits: 'Preserves your budget for the actual problem. Skip replacement for age or handicap alone; accept that the current set may lack features you prefer.', verifyBeforeBuying: 'Record what happened on approach shots over several rounds before booking a demo.' },
+    { situation: 'Off-center iron contact is a recurring problem', startingPoint: 'Compare game-improvement heads', whyItFits: 'A sensible starting category for a forgiveness trial. Larger heads and soles bring visual and turf trade-offs; skip any head that performs worse on your common miss.', verifyBeforeBuying: 'Compare normal mishits as well as centered strikes against your own iron.' },
+    { situation: 'Longer irons fly low or carry nearly the same distance', startingPoint: 'Try higher-launch builds and a hybrid alternative', whyItFits: 'Tests the missing flight or distance job. Skip a full long-iron package if the clubs remain redundant; a different label alone is not a solution.', verifyBeforeBuying: 'Hit the longest iron you intend to order, not only the fitting 7-iron.' },
+    { situation: 'Prefer a smaller head and already produce useful flight', startingPoint: 'Include a compact head in the same comparison', whyItFits: 'Appearance and feel can matter to your choice. Skip it if ordinary misses become less playable, even when the best shots look excellent.', verifyBeforeBuying: 'Retain mishits in the comparison and check carry spread in both directions.' },
+    { situation: 'Budget would be stretched by a new set', startingPoint: 'Price a used fitted build or keep the current set', whyItFits: 'Can reduce the cash needed, but condition, alterations and missing clubs add risk. Skip a bargain with an unverifiable shaft or no workable return policy.', verifyBeforeBuying: 'Compare the complete fitted cost, including grips, missing wedges and any needed hybrid.' },
+    { situation: 'Tall, short, tiring with the current build, or between shafts', startingPoint: 'Fit length, lie and shaft before choosing a stock listing', whyItFits: 'A stocked Regular label cannot settle these needs. Custom fitting takes time and may add cost; skip a convenient standard set that differs from your demo.', verifyBeforeBuying: 'Get the actual length, lie, shaft model and flex in writing.' },
+  ],
+  contentSections: [
+    {
+      heading: 'Name the iron problem before choosing a category',
+      body: [
+        'Keep a brief approach-shot log: club, intended carry, strike location if known, first landing point and the miss that mattered. Separate poor contact from a good strike aimed at the wrong target. Note whether the difficult club is a short iron, every iron or just the longest two.',
+        'Use that log to set one buying objective: fewer severe short misses, a more useful long-iron flight, better distance separation or a build you can swing comfortably throughout the session. If you cannot identify a recurring equipment problem, start with an observed lesson or fitting assessment rather than a new set.',
+        'Our starting recommendation is game improvement, not an ability restriction. Do not buy a blade as a promise of future improvement, or assume you must leave a forgiving design when your handicap falls. Ask the next set to demonstrate a useful difference now.',
+      ],
+    },
+    {
+      heading: 'What the Qi Max HL example actually includes',
+      body: [
+        'TaylorMade positions Qi Max HL as its larger-profile, higher-launch game-improvement option. The company describes a larger face and wide sole intended to support forgiveness. Those are manufacturer design claims, not our measured results or a guarantee that your slice, contact or stopping distance will improve.',
+        'For this model, TaylorMade lists lofts of 23.5° (5), 27° (6), 31° (7), 35.5° (8), 40° (9), 44.5° (PW) and 50° (AW). Its stock men’s 7-iron length is 37.25 inches. The steel shaft is KBS Max Lite; choose the actual fitted build rather than treating the Regular label as a handicap category.',
+        'The featured Amazon set and TaylorMade stock selector both identify SKU M2133207. The listing contains seven irons, with no sand wedge, hybrid, woods, putter or bag included. It is a substantial replacement-set purchase, not a complete starter bag. Compare today’s total with the manufacturer and your fitter before ordering.',
+        'Try the sole from your normal turf and assess the head at address. Do not pay for this exact seven-club package if your fitting calls for a 6-iron start or a different shaft. Buying the closest available variant is not equivalent to buying the one you tried.',
+      ],
+    },
+    {
+      heading: 'Budget for the clubs you will actually carry',
+      body: [
+        'Write a total ceiling before the fitting. Include the set, fitting charge, tax, delivery, grip or adjustment work, any missing wedge or hybrid, and possible return shipping. Compare quotes with the same club count and build. A lower advertised set price may simply include fewer clubs.',
+        'If you can afford only a small change, first investigate the one weak link: a worn grip, an unsuitable long iron or a missing distance between wedges. Get a repair quote before assuming a full replacement is necessary. Do not fund a premium set by removing the practice or instruction budget you planned to use.',
+        'For used irons, request clear face, sole and shaft-label photographs for every club. Ask about shaft replacements, extensions, loft/lie alterations, grip condition and the exact return terms. Have a competent shop inspect condition and measure an altered build. Skip the transaction when the seller cannot identify what is being sold.',
+        'A newer generation earns its additional cost only if its actual build produces a benefit you value in the comparison. We have no evidence that this particular new set will outperform your existing or a suitable used set for you.',
+      ],
+    },
+    {
+      heading: 'Fit the whole build, including the ends of the set',
+      body: [
+        'Callaway’s published iron-fitting protocol considers player goals, shaft selection, length, dynamic lie, grip and set makeup. It uses static measurements alongside observation and asks which is the longest iron the player is comfortable hitting. That supports a fitting process, not a universal flex or length prescription for a 20 handicap.',
+        'Ask to compare shaft weight and flex while keeping the head and other settings as similar as practical. Then compare heads in a suitable build. Record each change; otherwise you cannot tell whether the head, shaft or length drove the difference. Age, sex and handicap labels are poor substitutes for this comparison.',
+        'At the long end, compare the proposed longest iron with your next iron and a hybrid candidate. If it does not offer a distinct, useful carry and flight, price a shorter iron set. At the short end, write down the actual pitching- and approach-wedge lofts and test them against your retained wedges. Do not assume the letter on a sole specifies a universal loft.',
+        'If a new set is longer with the same numbered club, investigate loft and length as well as the flight. Decide whether the new carry pattern is useful after accounting for any extra clubs needed at either end. Raw 7-iron distance alone cannot answer that.',
+      ],
+    },
+    {
+      heading: 'A practical keep-or-buy test to take to the fitting',
+      body: [
+        '1. Bring your current irons, normal playing ball and shot log. Tell the fitter your all-in budget and one main objective. Warm up before comparing. Use the same target and conditions; label simulator carry separately from total distance.',
+        '2. Compare your mid-iron with two plausible alternatives. As an editorial practice protocol, start with two alternating blocks of five shots per build, with rests. This is a manageable comparison, not a validated sample size or a lab test. Keep ordinary mishits in the record; mark monitor misreads separately rather than quietly deleting poor shots.',
+        '3. Save each shot’s carry and direction, and record strike location and comfort. With a launch monitor, ask the fitter to explain launch, spin and landing angle together for your speed and the greens you play. Do not chase a universal internet target. Without reliable carry measurement, use the session to shortlist and arrange a measured fitting before a costly purchase.',
+        '4. Test the proposed longest iron and a short iron or wedge before committing to the whole set. Check the transition to your retained hybrid and sand wedge. If a fitting cart cannot provide those clubs, seek a demo or a clearly permitted trial instead of assuming the 7-iron result applies throughout.',
+        '5. Repeat the leading option against your own club after a break, then try normal turf if the first comparison was on a mat. Buy only if the benefit addresses your stated problem without an unacceptable new miss or missing-club expense. If results are mixed or fatigue changes the winner, retain the current set and retest another day.',
+      ],
+    },
+    {
+      heading: 'Make the online order match the demo',
+      body: [
+        'Write the brand, exact model and generation, hand, every included club, shaft manufacturer and model, flex, length, lie, loft changes and grip specification on the fitting sheet. Check the retailer’s selected variant and final order summary against that sheet. A product photograph or a shared review pool is not proof of the selected build.',
+        'Confirm the seller, delivery destination and new-versus-used condition. Read whether a played club can be returned, the time limit, fees and treatment of custom builds before testing a delivered set. Ask how warranty support works for that seller; a listing’s warranty line is not a substitute for applicable terms.',
+        'When the clubs arrive, inspect the club count, shaft labels and condition before playing. Have any critical fitted measurements checked if the supplied build is uncertain. Retest when contact, speed, physical comfort or the rest of your bag changes, not simply because a new model launches.',
+      ],
+    },
+  ],
+  buyingChecklist: [
+    'I can name the recurring iron problem and explain why replacement, repair or keeping my set is the right response.',
+    'I compared the proposed build with my own clubs and retained ordinary mishits in the results.',
+    'The longest iron supplies a useful job, and the PW/AW transition fits the wedges I will carry.',
+    'The full cost fits my ceiling, including any hybrid, wedge, grip work, fitting and return charges.',
+    'My order lists the exact model/year, hand, club count, shaft model/flex, lengths, lie/loft changes and grip.',
+    'The selected listing matches the fitting sheet, and I understand seller, condition, trial, return and warranty terms.',
+  ],
+  faqs: [
+    { question: 'What irons should a 20-handicap golfer play?', answer: 'Start the comparison with game-improvement heads, then let your strike pattern and useful flight decide. Trial higher-launch options when longer irons fly low or overlap. A compact head remains an option if it keeps your ordinary misses playable. Keep your current irons when the demo does not justify a change.' },
+    { question: 'What are the best used irons for a 20 handicap?', answer: 'A used set in the build that fits you is a better target than a particular old model name. Compare complete cost and inspect every club for condition and alterations. If shafts, lengths or missing clubs cannot be verified, skip the apparent bargain. This guide does not endorse an unverified used listing.' },
+    { question: 'How far should a 20 handicap hit a 7-iron?', answer: 'There is no yardage target in this guide: handicap alone does not specify speed, strike, loft or playing conditions. Measure your typical carry and spread. For buying purposes, a useful flight and sensible gaps to neighboring clubs matter more than matching another golfer’s distance.' },
+    { question: 'Should I buy blades to improve, or a set I can grow into?', answer: 'Do not make future improvement the justification for a worse result today. Compare the smaller head if you like it, but retain the same standards for misses and distance coverage. Our recommendation is to buy the build that serves your current shots and retest when your needs change.' },
+    { question: 'Should a senior or a 20 handicap automatically use graphite Regular?', answer: 'No. Compare actual shaft models, weights and flexes with a fitter. Treat fatigue or uncomfortable feel as reasons to investigate the build, not as proof of one material or label. The featured steel Regular set should be skipped if the successful demo used something else.' },
+    { question: 'Should my iron set start at a 5-iron or a 6-iron?', answer: 'Start with the longest iron that adds a useful carry and flight beyond the next club. Compare a hybrid for that job. If the 5-iron overlaps your 6-iron, price the shorter set plus the required alternative rather than buying seven clubs just because they are bundled.' },
+    { question: 'Does an approach wedge mean I do not need another wedge?', answer: 'No. In the featured Qi Max HL set, the AW is 50°. Test its full-shot distance and greenside use against the wedges you retain. The seven-club package includes no sand wedge. Buy an additional club only for a shot or gap your current setup does not cover.' },
+    { question: 'Is fitting worthwhile before my swing is consistent?', answer: 'Use a fitting to check basic suitability and compare realistic misses; you do not need perfect strikes to ask those questions. If results fluctuate too much to distinguish builds, stop short of an expensive order. Instruction and a later comparison may be the more useful next spend.' },
+    { question: 'Can I adjust my current irons instead of replacing them?', answer: 'Ask a qualified builder to inspect them and quote the specific work. Do not assume every head can accept the desired loft or lie change, or that a reshaft is economical. Compare the fitted result and total repair cost with keeping the set unchanged or buying a suitable replacement.' },
+  ],
+  sources: [
+    { name: 'TaylorMade Qi Max HL product specifications and stock selector', url: 'https://www.taylormadegolf.com/Qi-Max-HL-Irons/DW-TC680.html?lang=en_US', note: 'Checked October 10, 2026: model lofts, stock length, head image and current direct price; right/steel/Regular/5–PW, AW selector resolved to SKU M2133207, matching the rendered Amazon listing. Manufacturer positioning is attributed, not treated as independent testing.' },
+    { name: 'TaylorMade Qi Max HL launch announcement', url: 'https://www.taylormadegolf.com/clubhouse/1234957-qi-max-iron-press-release.html?lang=default', note: 'Primary confirmation of the 2026 generation, larger HL profile and KBS Max Lite steel option. No manufacturer performance promise is presented as a result for the reader.' },
+    { name: 'Callaway iron-fitting protocol', url: 'https://callawaymedia.com/wp-content/uploads/2023/03/Irons-Fitting-Protocol.pdf', note: 'Primary process reference for goals, length, shaft, dynamic lie, grip and longest comfortable iron. Its model-specific speed and launch tables are not applied as universal targets. Our alternating-shot protocol is editorial guidance, not a Callaway test or an experiment we conducted.' },
+  ],
+  relatedProducts: [],
+};

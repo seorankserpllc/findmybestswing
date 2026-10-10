@@ -2,8 +2,10 @@
 
 import { PUTTER_LENGTH_GUIDE } from './putterLengthGuide';
 import { BEGINNER_WEDGE_GUIDE } from './beginnerWedgeGuide';
+import { TWENTY_HANDICAP_IRONS_GUIDE } from './twentyHandicapIronsGuide';
 
 export const EDITORIAL_GUIDES: EditorialGuide[] = [
+  TWENTY_HANDICAP_IRONS_GUIDE,
   BEGINNER_WEDGE_GUIDE,
   PUTTER_LENGTH_GUIDE,
   {
