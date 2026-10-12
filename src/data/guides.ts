@@ -1,8 +1,9 @@
-﻿import { EditorialGuide } from '../types/domain';
+import { EditorialGuide } from '../types/domain';
 
 import { PUTTER_LENGTH_GUIDE } from './putterLengthGuide';
 import { BEGINNER_WEDGE_GUIDE } from './beginnerWedgeGuide';
 import { TWENTY_HANDICAP_IRONS_GUIDE } from './twentyHandicapIronsGuide';
+import { BALL_COMPRESSION_GUIDE } from './ballCompressionGuide';
 
 export const EDITORIAL_GUIDES: EditorialGuide[] = [
   TWENTY_HANDICAP_IRONS_GUIDE,
@@ -99,97 +100,7 @@ export const EDITORIAL_GUIDES: EditorialGuide[] = [
     ],
     relatedProducts: ['taylormade-stealth-2-driver', 'callaway-paradym-driver'],
   },
-  {
-    id: 'golf-ball-compression-chart-velocity-guide',
-    slug: 'golf-ball-compression-chart-velocity-guide',
-    title: 'Golf Ball Compression Chart: Use It for Feel, Not as a Speed Limit',
-    subtitle: 'Pick a ball from the green back to the tee—cover, short-game control, flight, feel and budget come before one compression number.',
-    readingTimeMinutes: 11,
-    publishedDate: 'September 28, 2026',
-    authorName: 'FindMyBestSwing Editorial Team',
-    authorTitle: 'Equipment research and buyer guidance',
-    excerpt: 'Compression is useful, but it is not an industry-standard speed limit. This guide turns it into a practical shortlist and on-course buying test.',
-    verdict: 'Do not buy a golf ball only because a chart says your swing can or cannot compress it. Use compression as a feel and broad construction clue, then choose by greenside control, flight, durability, price and the results of a two-ball on-course test.',
-    keyTakeaways: [
-      'Compression measures relative firmness, but brands and independent labs do not all use the same test, so cross-brand numbers are approximate.',
-      'Modern balls are designed as systems: core, mantle layers, cover and dimples all influence speed, spin, flight and feel.',
-      'A slower swing can still play a urethane tour ball; the real questions are whether its short-game control and flight help enough to justify the cost.',
-      'For frequent ball loss, a durable ionomer ball can be the smarter scoring purchase even when a premium ball spins more around the green.',
-    ],
-    decisionTable: [
-      { situation: 'You lose several balls per round', startingPoint: 'Durable two-piece ionomer ball', whyItFits: 'Lower replacement cost and durable cover reduce the penalty of lost or scuffed balls.', verifyBeforeBuying: 'Make sure the feel is acceptable on putts and the ball still holds your typical approach shots.' },
-      { situation: 'You need chips and pitches to stop sooner', startingPoint: 'Urethane-covered multilayer ball', whyItFits: 'Urethane models are generally designed for more greenside control.', verifyBeforeBuying: 'Test 30–70 yard shots and chips before judging it with the driver.' },
-      { situation: 'You prefer a soft impact feel', startingPoint: 'Lower-compression or soft-feel model', whyItFits: 'Compression is strongly related to perceived firmness, though cover and club also matter.', verifyBeforeBuying: 'Putt and chip with it; do not assume softer automatically means longer.' },
-      { situation: 'You want a firmer response or play in heavy wind', startingPoint: 'Medium-to-firm model with the flight you need', whyItFits: 'Firm feel and flight are model-specific; compression alone does not set trajectory.', verifyBeforeBuying: 'Compare peak height and dispersion outdoors or with reliable launch data.' },
-      { situation: 'You only know driver swing speed', startingPoint: 'Use a broad band to build a shortlist, not a rule', whyItFits: 'Speed can rule out an obvious feel mismatch but does not describe your scoring shots.', verifyBeforeBuying: 'Test from green to tee and keep the ball that saves the most strokes.' },
-    ],
-    contentSections: [
-      {
-        heading: 'The chart—and the limitation that matters',
-        body: [
-          'Common retail charts group under roughly 85 mph with softer balls, 85–105 mph with mid-compression balls and faster speeds with firmer balls. Those bands can create a shortlist, but they are not equipment law.',
-          'Titleist’s current education material says compression is only one design element and that measurement methods differ. That contradicts the common claim that a player below a fixed speed cannot use a premium ball. Every full swing deforms the ball; the amount and resulting performance vary by the whole design.',
-        ],
-        callout: { type: 'warning', title: 'No universal compression scale', message: 'Treat model compression figures as approximate unless they come from the same test source. A “70” from one list may not be directly comparable with a “70” from another.' },
-      },
-      {
-        heading: 'Choose in this order: green, approach, tee, wallet',
-        body: [
-          'Start with the shortest shots. Can you predict rollout on chips? Does the ball give enough feedback on putts? On partial wedges, does it stop where your game needs it to stop?',
-          'Next test full irons for carry consistency, peak height and the ability to hold a green. Then compare driver flight and dispersion. A few extra yards are not useful if the ball removes the short-game control you rely on.',
-          'Finally, include cost per playable round. A premium ball that you replace after every lost tee shot may be a poor fit for your current game. A value urethane model or durable ionomer model can be the better decision even if it is not the theoretical performance winner.',
-        ],
-      },
-      {
-        heading: 'Cover material explains more of the buying trade-off',
-        body: [
-          'Callaway’s buying guide distinguishes durable ionomer or Surlyn-style covers from softer urethane covers that are used to create more feel and control. The category is not absolute—individual models behave differently—but it is usually more actionable than an isolated compression number.',
-          'Choose ionomer when durability, lower cost and lower full-shot spin are priorities. Choose urethane when predictable greenside spin and approach control justify the higher price. Multilayer construction lets designers separate driver and wedge behavior more than a basic two-piece construction can.',
-        ],
-      },
-      {
-        heading: 'A fair two-ball test you can run in one round',
-        body: [
-          'Buy sleeves, not dozens, of two finalists. Use the same two models for several holes and compare from similar lies without delaying play. Start with putting, chips and partial wedges, then full irons and tee shots.',
-          'Track three things: proximity or rollout on scoring shots, penalty-worthy dispersion, and confidence in feel. Do not switch models after every bad swing. The goal is to identify a repeatable pattern, not reward one perfect shot.',
-          'If performance is tied, use price, durability and availability as the tie-breakers. The easiest ball to replace consistently is often a better long-term choice than a model that is occasionally unavailable.',
-        ],
-        callout: { type: 'tip', title: 'Test the ball you will actually buy', message: 'Use the same generation and model marking. Manufacturers revise constructions, so a result from an older version may not transfer perfectly to the current box.' },
-      },
-      {
-        heading: 'Pros and cons by ball type',
-        body: [
-          'Soft two-piece ionomer: usually affordable, durable and comfortable-feeling. The trade-off is generally less greenside spin than a urethane model.',
-          'Value urethane: adds short-game control without always reaching tour-ball pricing. The trade-off can be lower cover durability and fewer flight or feel options.',
-          'Premium multilayer urethane: offers the broadest separation of tee, iron and wedge performance. The trade-off is cost, especially for golfers who lose balls often.',
-        ],
-      },
-    ],
-    buyingChecklist: [
-      'Set a realistic price per dozen based on how many balls you lose or scuff.',
-      'Choose whether greenside stopping power or cover durability matters more.',
-      'Select two models with the feel and flight you prefer; use compression only as a shortlist clue.',
-      'Buy one sleeve of each before buying in bulk.',
-      'Test from green to tee: putts, chips, partial wedges, irons, then driver.',
-      'Record rollout, approach stopping, driver dispersion and cover wear.',
-    ],
-    faqs: [
-      { question: 'Can an 80 mph swing use a Pro V1?', answer: 'Yes. Swing speed alone does not prevent a golfer from using a premium urethane ball. The decision is whether the flight, short-game control, feel and price improve that golfer’s scoring compared with alternatives.' },
-      { question: 'Does lower compression automatically mean more distance for slow swings?', answer: 'No. Compression is only one part of the design. Some golfers prefer the feel or flight of a softer ball, but distance depends on the complete construction and the player’s launch and strike.' },
-      { question: 'Will a low-compression ball fix a slice?', answer: 'No ball fixes an open face-to-path relationship. A lower-spinning model may curve less for a particular player, but the ball cannot correct the swing cause.' },
-      { question: 'Should seniors always play a soft golf ball?', answer: 'No. Age and gender are not fitting inputs by themselves. Choose by flight, short-game needs, feel, durability and budget, then verify on the course.' },
-      { question: 'Is urethane worth paying for?', answer: 'It can be if extra control on chips, pitches and approaches changes outcomes for you. If you lose many balls or do not see a scoring difference, a durable ionomer model may be better value.' },
-      { question: 'What should I do in cold weather?', answer: 'Expect less distance from the conditions and your body, keep balls at normal room temperature before play, and choose a feel you can judge. Do not heat a ball beyond normal temperature or rely on an exact compression-change claim.' },
-      { question: 'How often should I change golf ball models?', answer: 'Retest when the manufacturer releases a new generation, your swing or short-game needs change, or your current ball becomes hard to buy. Consistency is valuable, so avoid changing only because of one poor round.' },
-    ],
-    sources: [
-      { name: 'Titleist Learning Lab: Golf Ball Compression', url: 'https://www.titleist.com/learning-lab/performance/golf-ball-compression', note: 'Primary source for what compression measures, the lack of a universal method and the role of total construction.' },
-      { name: 'Titleist golf ball fitting', url: 'https://www.titleist.com/fitting/golf-ball-fitting', note: 'Primary source for fitting by flight, spin and feel rather than a single speed number.' },
-      { name: 'Titleist green-to-tee fitting approach', url: 'https://mediacenter.titleist.com/en-US/191125-titleist-golf-ball-fitting-experts-now-available-for-virtual-consultations/', note: 'Primary source for testing scoring shots before tee shots.' },
-      { name: 'Callaway golf ball buying guide', url: 'https://odysseygolfqa.callawaygolf.com/golf-guides/golf-ball-buying-guide', note: 'Primary source for cover and construction trade-offs.' },
-    ],
-    relatedProducts: ['callaway-supersoft-golf-balls', 'titleist-pro-v1-golf-balls', 'srixon-soft-feel-golf-balls', 'taylormade-distance-plus-golf-balls'],
-  },
+  BALL_COMPRESSION_GUIDE,
   {
     id: 'tall-golfer-club-fitting-guide',
     slug: 'tall-golfer-club-fitting-guide',
