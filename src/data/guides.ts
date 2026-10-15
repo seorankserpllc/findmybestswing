@@ -5,8 +5,10 @@ import { BEGINNER_WEDGE_GUIDE } from './beginnerWedgeGuide';
 import { TWENTY_HANDICAP_IRONS_GUIDE } from './twentyHandicapIronsGuide';
 import { BALL_COMPRESSION_GUIDE } from './ballCompressionGuide';
 import { GRIP_REPLACEMENT_GUIDE } from './gripReplacementGuide';
+import { GLOVE_FIT_GUIDE } from './gloveFitGuide';
 
 export const EDITORIAL_GUIDES: EditorialGuide[] = [
+  GLOVE_FIT_GUIDE,
   GRIP_REPLACEMENT_GUIDE,
   TWENTY_HANDICAP_IRONS_GUIDE,
   BEGINNER_WEDGE_GUIDE,
