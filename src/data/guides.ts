@@ -6,8 +6,10 @@ import { TWENTY_HANDICAP_IRONS_GUIDE } from './twentyHandicapIronsGuide';
 import { BALL_COMPRESSION_GUIDE } from './ballCompressionGuide';
 import { GRIP_REPLACEMENT_GUIDE } from './gripReplacementGuide';
 import { GLOVE_FIT_GUIDE } from './gloveFitGuide';
+import { BAG_STORAGE_GUIDE } from './bagStorageGuide';
 
 export const EDITORIAL_GUIDES: EditorialGuide[] = [
+  BAG_STORAGE_GUIDE,
   GLOVE_FIT_GUIDE,
   GRIP_REPLACEMENT_GUIDE,
   TWENTY_HANDICAP_IRONS_GUIDE,
