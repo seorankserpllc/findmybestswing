@@ -9,8 +9,10 @@ import { GLOVE_FIT_GUIDE } from './gloveFitGuide';
 import { BAG_STORAGE_GUIDE } from './bagStorageGuide';
 import { TEMPO_GRIP_TRAINER_GUIDE } from './tempoGripTrainerGuide';
 import { BALL_WASHER_GUIDE } from './ballWasherGuide';
+import { IRON_COVERS_GUIDE } from './ironCoversGuide';
 
 export const EDITORIAL_GUIDES: EditorialGuide[] = [
+  IRON_COVERS_GUIDE,
   BALL_WASHER_GUIDE,
   TEMPO_GRIP_TRAINER_GUIDE,
   BAG_STORAGE_GUIDE,
