@@ -119,6 +119,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </h4>
             <ul className="space-y-1.5">
               <li>
+                <InternalLink href={'/guides'} onNavigate={onNavigate} className="font-semibold text-fairway-300 hover:text-fairway-400 transition-colors">
+                  All Golf Guides
+                </InternalLink>
+              </li>
+              <li>
                 <InternalLink href={'/guides/driver-shaft-flex-swing-speed-matrix'} onNavigate={onNavigate} className="hover:text-fairway-400 transition-colors">
                   Driver Shaft Flex Guide
                 </InternalLink>
