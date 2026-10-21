@@ -7,7 +7,7 @@ const template = await readFile('dist/index.html', 'utf8');
 const escape = value => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 for (const route of guideRoutes) {
   const { html, meta } = renderGuideRoute(route);
-  const canonical = `https://mybestswing.com${meta.canonicalPath}`;
+  const canonical = `https://findmybestswing.com${meta.canonicalPath}`;
   let document = template.replace('<div id="root"></div>', () => `<div id="root">${html}</div>`)
     .replace(/<title>.*?<\/title>/, () => `<title>${escape(meta.title)}</title>`)
     .replace(/<link rel="canonical" href="[^"]*"\s*\/?>/, () => `<link rel="canonical" href="${canonical}" />`);

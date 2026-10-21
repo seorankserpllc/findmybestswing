@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mybestswing.com/sitemap.xml
+Sitemap: https://findmybestswing.com/sitemap.xml

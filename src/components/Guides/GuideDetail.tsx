@@ -14,7 +14,7 @@ interface GuideDetailProps {
 }
 
 export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onNavigate }) => {
-    const pageUrl = `https://mybestswing.com/guides/${guide.slug}`;
+    const pageUrl = `https://findmybestswing.com/guides/${guide.slug}`;
     const schema = JSON.stringify({
       '@context': 'https://schema.org',
       '@graph': [
@@ -30,7 +30,7 @@ export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onNavigate }) =
           publisher: {
             '@type': 'Organization',
             name: 'FindMyBestSwing',
-            url: 'https://mybestswing.com/',
+            url: 'https://findmybestswing.com/',
           },
         },
         {
@@ -40,13 +40,13 @@ export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onNavigate }) =
               '@type': 'ListItem',
               position: 1,
               name: 'Home',
-              item: 'https://mybestswing.com/',
+              item: 'https://findmybestswing.com/',
             },
             {
               '@type': 'ListItem',
               position: 2,
               name: 'Buying Guides',
-              item: 'https://mybestswing.com/guides',
+              item: 'https://findmybestswing.com/guides',
             },
             {
               '@type': 'ListItem',

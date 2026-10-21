@@ -25,7 +25,7 @@ export const ProductReviewPage: React.FC<ProductReviewPageProps> = ({ product, o
       document.head.appendChild(script);
     }
 
-    const pageUrl = `https://mybestswing.com/products/${product.slug}`;
+    const pageUrl = `https://findmybestswing.com/products/${product.slug}`;
     const schemaData = {
       "@context": "https://schema.org",
       "@graph": [
@@ -33,7 +33,7 @@ export const ProductReviewPage: React.FC<ProductReviewPageProps> = ({ product, o
           "@type": "Product",
           "name": `${product.brand} ${product.model}`,
           "description": product.summary,
-          "image": new URL(product.mediaCdnUrl, 'https://mybestswing.com').toString(),
+          "image": new URL(product.mediaCdnUrl, 'https://findmybestswing.com').toString(),
           "url": pageUrl,
           "mainEntityOfPage": { "@type": "WebPage", "@id": pageUrl },
           "brand": {
@@ -49,13 +49,13 @@ export const ProductReviewPage: React.FC<ProductReviewPageProps> = ({ product, o
               "@type": "ListItem",
               "position": 1,
               "name": "Home",
-              "item": "https://mybestswing.com/",
+              "item": "https://findmybestswing.com/",
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Golf Gear Reviews",
-              "item": "https://mybestswing.com/catalog",
+              "item": "https://findmybestswing.com/catalog",
             },
             {
               "@type": "ListItem",

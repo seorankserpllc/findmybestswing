@@ -9,7 +9,7 @@ const titles = new Set();
 let contextualLinks = 0;
 for (const guide of guideAuditData) {
   const html = await readFile(`dist/guides/${guide.slug}/index.html`, 'utf8');
-  const canonical = `https://mybestswing.com/guides/${guide.slug}`;
+  const canonical = `https://findmybestswing.com/guides/${guide.slug}`;
   assert.equal((html.match(/<h1\b/g) ?? []).length, 1, guide.slug);
   assert.equal((html.match(/rel="canonical"/g) ?? []).length, 1);
   assert.ok(html.includes(`rel="canonical" href="${canonical}"`));
@@ -32,7 +32,7 @@ for (const guide of guideAuditData) {
   assert.ok(guideLinks.length > 0, `No contextual guide links: ${guide.slug}`);
   contextualLinks += guideLinks.length;
   for (const link of guideLinks) assert.ok(guideAuditData.some(target => `/guides/${target.slug}` === link[1]));
-  assert.ok(!/href="(?:\/|https:\/\/mybestswing\.com)[^"]*#/.test(html));
+  assert.ok(!/href="(?:\/|https:\/\/findmybestswing\.com)[^"]*#/.test(html));
   for (const anchor of html.matchAll(/<a\b[^>]*href="(https:\/\/(?:www\.)?amazon\.com[^\"]*)"[^>]*>/g)) {
     assert.match(anchor[1], /^https:\/\/www\.amazon\.com\/dp\/[A-Z0-9]{10}\?tag=findmybestswing-20$/);
     assert.match(anchor[0], /rel="[^"]*nofollow[^\"]*sponsored/);

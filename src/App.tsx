@@ -17,7 +17,7 @@ import { getProductBySlug } from './data/products';
 import { getGuideBySlug } from './data/guides';
 import { getBlueprintBySlug } from './data/blueprints';
 
-const SITE_URL = 'https://mybestswing.com';
+const SITE_URL = 'https://findmybestswing.com';
 const DEFAULT_TITLE = 'FindMyBestSwing | Smart Golf Gear Matcher & Club Finder';
 const DEFAULT_DESCRIPTION = 'Find golf clubs and golf balls matched to your swing, height, miss, needs, and budget.';
 
