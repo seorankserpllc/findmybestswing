@@ -10,8 +10,10 @@ import { BAG_STORAGE_GUIDE } from './bagStorageGuide';
 import { TEMPO_GRIP_TRAINER_GUIDE } from './tempoGripTrainerGuide';
 import { BALL_WASHER_GUIDE } from './ballWasherGuide';
 import { IRON_COVERS_GUIDE } from './ironCoversGuide';
+import { GOLF_SPIKE_GUIDE } from './golfSpikeGuide';
 
 export const EDITORIAL_GUIDES: EditorialGuide[] = [
+  GOLF_SPIKE_GUIDE,
   IRON_COVERS_GUIDE,
   BALL_WASHER_GUIDE,
   TEMPO_GRIP_TRAINER_GUIDE,
