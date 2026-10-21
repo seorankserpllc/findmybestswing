@@ -16,10 +16,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     <div className="space-y-16 sm:space-y-20 pb-16">
       
       {/* Hero Section: Crisp Golf Course Atmosphere */}
-      <section className="relative overflow-hidden pt-12 sm:pt-20 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#08301f] via-[#062015] to-[#04150e] border-b border-fairway-800/60 golf-dimple-pattern">
-        
-        {/* Subtle decorative glowing golf green orb */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-fairway-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <section className="course-hero relative overflow-hidden pt-12 sm:pt-20 pb-16 px-4 sm:px-6 lg:px-8 border-b border-fairway-800/60">
 
         <div className="max-w-4xl mx-auto text-center space-y-6 relative z-10">
           

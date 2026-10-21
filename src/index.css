@@ -15,10 +15,7 @@
 
   body {
     @apply bg-slate-900 text-slate-100 font-sans;
-    background-color: #061c12; /* Deep golf clubhouse green */
-    background-image: 
-      radial-gradient(circle at 50% 0%, rgba(34, 197, 94, 0.12) 0%, transparent 60%),
-      radial-gradient(circle at 100% 100%, rgba(245, 158, 11, 0.05) 0%, transparent 40%);
+    background-color: #071d17;
   }
 
   main,
@@ -39,10 +36,33 @@
   }
 }
 
-/* Subtle golf ball dimple texture pattern */
-.golf-dimple-pattern {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1.5px, transparent 1.5px);
-  background-size: 16px 16px;
+/* Decorative local artwork; shaded so content remains the foreground. */
+.course-shell {
+  background-color: #071d17;
+}
+
+.course-shell > main {
+  background-image:
+    linear-gradient(to bottom, rgba(5, 22, 17, .35), rgba(5, 22, 17, .2) 330px, #071d17 950px),
+    linear-gradient(to right, rgba(5, 22, 17, .15), rgba(5, 22, 17, .78) 38%, rgba(5, 22, 17, .78) 62%, rgba(5, 22, 17, .15)),
+    url('/images/course-landscape.svg');
+  background-position: center top;
+  background-size: auto 1000px;
+  background-repeat: no-repeat;
+}
+
+.course-hero {
+  background: linear-gradient(to bottom, transparent 65%, rgba(7, 29, 23, .65));
+}
+
+@media (max-width: 639px) {
+  .course-shell > main {
+    background-image:
+      linear-gradient(to bottom, rgba(5, 22, 17, .78), rgba(5, 22, 17, .65) 450px, #071d17 850px),
+      url('/images/course-landscape.svg');
+    background-position: 68% top;
+    background-size: auto 900px;
+  }
 }
 
 /* Custom scrollbar */

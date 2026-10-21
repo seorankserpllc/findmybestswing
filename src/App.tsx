@@ -339,7 +339,7 @@ export function App({ initialRoute }: { initialRoute?: string } = {}) {
   };
 
   return (
-    <div className="min-h-screen w-full max-w-full min-w-0 overflow-x-clip flex flex-col bg-slate-950 text-slate-100 font-sans selection:bg-emerald-600 selection:text-white">
+    <div className="course-shell min-h-screen w-full max-w-full min-w-0 overflow-x-clip flex flex-col text-slate-100 font-sans selection:bg-emerald-600 selection:text-white">
       <Header currentRoute={currentRoute} onNavigate={navigateTo} />
       <main className="flex-1 min-w-0 w-full">
         {renderCurrentView()}

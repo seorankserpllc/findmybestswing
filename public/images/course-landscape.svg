@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="800" y1="0" x2="800" y2="650" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#315a52"/><stop offset=".55" stop-color="#8e9e74"/><stop offset="1" stop-color="#183f30"/>
+    </linearGradient>
+    <radialGradient id="light" cx="0" cy="0" r="1" gradientTransform="translate(1280 140) rotate(90) scale(430 550)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e4c58a" stop-opacity=".55"/><stop offset="1" stop-color="#e4c58a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fairway" x1="1080" y1="280" x2="800" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#79965a"/><stop offset="1" stop-color="#234f36"/>
+    </linearGradient>
+    <pattern id="mowing" width="140" height="140" patternUnits="userSpaceOnUse" patternTransform="rotate(-28)">
+      <rect width="70" height="140" fill="#bdd394" opacity=".1"/>
+    </pattern>
+    <clipPath id="fairway-shape">
+      <path d="M1150 310C1320 345 1310 420 1080 485C850 550 800 625 960 700C1120 775 1270 850 1390 1000H190C210 825 400 670 680 565C920 475 1060 410 1020 355C1000 325 1070 300 1150 310Z"/>
+    </clipPath>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1600v1000H0z"/>
+  <path fill="url(#light)" d="M0 0h1600v700H0z"/>
+  <circle cx="1280" cy="145" r="35" fill="#e8d3a0" opacity=".6"/>
+  <path d="M0 280C180 170 285 240 430 215S700 170 860 245S1120 170 1310 205S1460 230 1600 170V1000H0Z" fill="#365f4d"/>
+  <path d="M0 330C180 260 310 360 470 305S760 270 900 325S1220 235 1380 285S1510 290 1600 260V1000H0Z" fill="#244c38"/>
+  <path d="M0 420C220 310 390 480 610 390S970 290 1190 355S1430 360 1600 320V1000H0Z" fill="#376044"/>
+  <path d="M1150 310C1320 345 1310 420 1080 485C850 550 800 625 960 700C1120 775 1270 850 1390 1000H190C210 825 400 670 680 565C920 475 1060 410 1020 355C1000 325 1070 300 1150 310Z" fill="url(#fairway)"/>
+  <path clip-path="url(#fairway-shape)" fill="url(#mowing)" d="M0 0h1600v1000H0z"/>
+  <path d="M1086 326C1141 300 1247 318 1265 348C1286 384 1192 413 1121 396C1066 383 1046 345 1086 326Z" fill="#9ca66c"/>
+  <path d="M1279 399C1346 382 1371 413 1344 439C1315 465 1225 456 1228 431C1230 415 1254 406 1279 399Z" fill="#b5a67a"/>
+  <path d="M570 600C613 583 650 600 628 629C609 656 562 658 540 680C520 700 480 680 494 651C508 625 546 610 570 600Z" fill="#aa9e75"/>
+  <ellipse cx="1176" cy="356" rx="10" ry="3" fill="#3b5034"/>
+  <path d="M1176 355V239" stroke="#e8dfc5" stroke-width="4"/>
+  <path d="M1178 239L1232 256L1178 275Z" fill="#d6ac63"/>
+  <path d="M0 590C210 550 310 660 285 775C275 855 200 925 180 1000H0Z" fill="#173c2c"/>
+  <path d="M1600 495C1420 470 1280 550 1320 655S1520 820 1480 1000H1600Z" fill="#1b432f"/>
+  <g fill="#15392b">
+    <path d="M74 470L113 290L153 470Z"/><path d="M128 480L172 270L216 480Z"/><path d="M210 470L243 310L280 470Z"/>
+    <path d="M1425 420L1460 245L1495 420Z"/><path d="M1490 440L1540 210L1590 440Z"/>
+  </g>
+  <g stroke="#9bb777" stroke-opacity=".18" stroke-width="2">
+    <path d="M0 715C130 680 225 730 221 815"/><path d="M0 745C110 720 183 757 180 825"/>
+    <path d="M1600 625C1480 570 1385 615 1440 700S1560 800 1570 910"/>
+    <path d="M1600 660C1510 615 1450 650 1490 710S1590 810 1600 875"/>
+  </g>
+</svg>
