@@ -50,7 +50,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div className="space-y-2.5">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
               <Compass className="w-3.5 h-3.5 text-fairway-400" />
-              <span>Tested Clubs</span>
+              <span>Equipment Guides</span>
             </h4>
             <ul className="space-y-1.5">
               <li>

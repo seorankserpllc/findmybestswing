@@ -9,6 +9,7 @@ export const BEGINNER_WEDGE_GUIDE: EditorialGuide = {
   publishedDate: 'October 9, 2026',
   publishedDateIso: '2026-10-09',
   reviewedDateIso: '2026-10-09',
+  updatedDateIso: '2026-10-21',
   authorName: 'FindMyBestSwing Editorial Team',
   authorTitle: 'Source-based buying guidance',
   excerpt: 'Start with your current pitching wedge, then buy the wedge that solves a recurring shot: sand or gap first, lob later. Includes loft examples, budget trade-offs and a practice test.',

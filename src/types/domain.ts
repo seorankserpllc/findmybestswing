@@ -122,6 +122,7 @@ export interface EditorialGuide {
   publishedDate: string;
   publishedDateIso?: string;
   reviewedDateIso?: string;
+  updatedDateIso?: string;
   purchaseOptionsHeading?: string;
   purchaseOptionsIntro?: string;
   purchaseOptions?: {
@@ -134,6 +135,7 @@ export interface EditorialGuide {
     asin: string;
     amazonStatus: 'verified' | 'unavailable';
     amazonCheckedAt: string;
+    listingNote?: string;
   }[];
   authorName: string;
   authorTitle: string;

@@ -1,24 +1,21 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { EditorialGuide } from '../../types/domain';
 import { getProductBySlug } from '../../data/products';
 import { ProductImage } from '../Common/ProductImage';
 import { AmazonAvailabilityButton } from '../Common/AmazonAvailabilityButton';
 import { ArrowLeft, Clock, Calendar, User, CheckCircle, AlertCircle, Info, ExternalLink, ShoppingCart, HelpCircle, BookOpenCheck } from 'lucide-react';
 import { InternalLink } from '../Common/InternalLink';
+import { GUIDE_CONNECTIONS } from '../../data/guideConnections';
+import { CarryGapWorksheet } from './CarryGapWorksheet';
 
 interface GuideDetailProps {
   guide: EditorialGuide;
-  onBack: () => void;
   onNavigate: (route: string) => void;
 }
 
-export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onBack, onNavigate }) => {
-  useEffect(() => {
+export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onNavigate }) => {
     const pageUrl = `https://mybestswing.com/guides/${guide.slug}`;
-    const schema = document.createElement('script');
-    schema.type = 'application/ld+json';
-    schema.dataset.guideSchema = guide.slug;
-    schema.text = JSON.stringify({
+    const schema = JSON.stringify({
       '@context': 'https://schema.org',
       '@graph': [
         {
@@ -28,7 +25,7 @@ export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onBack, onNavig
           url: pageUrl,
           mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
           datePublished: guide.publishedDateIso ?? '2026-09-28',
-          dateModified: guide.reviewedDateIso ?? guide.publishedDateIso ?? '2026-09-28',
+          dateModified: guide.updatedDateIso ?? guide.reviewedDateIso ?? guide.publishedDateIso ?? '2026-09-28',
           author: { '@type': 'Organization', name: 'FindMyBestSwing Editorial Team' },
           publisher: {
             '@type': 'Organization',
@@ -68,21 +65,16 @@ export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onBack, onNavig
           })),
         },
       ],
-    });
-    document.head.appendChild(schema);
-
-    return () => {
-      schema.remove();
-    };
-  }, [guide]);
+    }).replace(/</g, '\\u003c');
 
   return (
     <article className="max-w-6xl mx-auto px-4 py-8 sm:py-12 space-y-10">
+      <script type="application/ld+json" data-guide-schema={guide.slug} dangerouslySetInnerHTML={{ __html: schema }} />
       <div>
-        <button onClick={onBack} className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-emerald-400 transition-colors">
+        <InternalLink href="/guides" onNavigate={onNavigate} className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-emerald-400 transition-colors">
           <ArrowLeft className="w-4 h-4" />
           <span>Back to All Guides</span>
-        </button>
+        </InternalLink>
       </div>
 
       <header className="max-w-4xl space-y-4">
@@ -90,6 +82,7 @@ export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onBack, onNavig
           <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5 text-emerald-400" />{guide.readingTimeMinutes} min read</span>
           <span aria-hidden="true">•</span>
           <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" />Reviewed {guide.publishedDate}</span>
+          {guide.updatedDateIso && <span>Updated {guide.updatedDateIso}</span>}
         </div>
         <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">{guide.title}</h1>
         <p className="text-base sm:text-xl text-slate-300 leading-relaxed font-light">{guide.subtitle}</p>
@@ -106,9 +99,9 @@ export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onBack, onNavig
 
       {guide.purchaseOptions && guide.purchaseOptions.length > 0 && (
         <section aria-labelledby="purchase-options-heading" className="space-y-4">
-          <h2 id="purchase-options-heading" className="text-xl font-bold text-white">{guide.purchaseOptionsHeading ?? 'A stock option after your length test'}</h2>
-          <p className="max-w-4xl text-sm text-slate-300">{guide.purchaseOptionsIntro ?? 'These are two configurations of the same model, not two independent winners. Buy only the build that fits.'} As an Amazon Associate, we earn from qualifying purchases.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <h2 id="purchase-options-heading" className="text-xl font-bold text-white">{guide.purchaseOptionsHeading ?? 'Options for this decision'}</h2>
+          <p className="max-w-4xl text-sm text-slate-300">{guide.purchaseOptionsIntro ?? 'Match the exact build to your needs and the checks below before buying.'} As an Amazon Associate, we earn from qualifying purchases.</p>
+          <div className={`grid grid-cols-1 sm:grid-cols-2 ${guide.purchaseOptions.length >= 3 ? 'lg:grid-cols-3' : ''} gap-4`}>
             {guide.purchaseOptions.map((option) => (
               <div key={option.asin} className="min-w-0 bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col gap-4">
                 <img src={option.imageUrl} alt={option.name} className="w-full h-44 object-contain bg-white rounded-xl" loading="lazy" />
@@ -120,7 +113,8 @@ export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onBack, onNavig
                   <div><dt className="font-bold text-white">Skip it if</dt><dd>{option.skipIf}</dd></div>
                 </dl>
                 <AmazonAvailabilityButton listing={option} label="Check this build on Amazon" className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white text-sm font-bold" />
-                <p className="text-xs text-slate-400">Listing checked {option.amazonCheckedAt}. ASIN: {option.asin}.</p>
+                {option.listingNote && <p className="text-xs text-slate-400">{option.listingNote}</p>}
+                {option.amazonStatus === 'verified' && <p className="text-xs text-slate-400">Listing checked {option.amazonCheckedAt}. ASIN: {option.asin}.</p>}
               </div>
             ))}
           </div>
@@ -190,11 +184,16 @@ export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onBack, onNavig
         </div>
       </section>
 
+      {['best-irons-for-20-handicap', 'what-wedges-should-a-beginner-carry'].includes(guide.slug) && <CarryGapWorksheet key={guide.slug} />}
+
       <div className="max-w-4xl space-y-10 text-sm sm:text-base text-slate-300 leading-relaxed">
         {guide.contentSections.map((section) => (
           <section key={section.heading} className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">{section.heading}</h2>
             {section.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            {(GUIDE_CONNECTIONS[guide.slug] ?? []).filter(link => link.section === section.heading).map(link => (
+              <p key={link.slug}>{link.before}<InternalLink href={`/guides/${link.slug}`} onNavigate={onNavigate} className="text-emerald-300 underline decoration-emerald-700 underline-offset-4 hover:text-emerald-200">{link.label}</InternalLink>{link.after}</p>
+            ))}
             {section.callout && (
               <div className={`p-5 rounded-2xl border text-sm flex items-start gap-3 ${section.callout.type === 'warning' ? 'bg-amber-950/30 border-amber-700/50 text-amber-100' : 'bg-slate-900 border-slate-800 text-slate-300'}`}>
                 {section.callout.type === 'warning' ? <AlertCircle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" /> : <Info className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />}

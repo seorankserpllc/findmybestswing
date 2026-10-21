@@ -1,6 +1,6 @@
 # Buying Guide Quality Standard
 
-Last reviewed: September 28, 2026
+Last reviewed: October 21, 2026
 
 ## The job of every guide
 
@@ -46,6 +46,8 @@ An article does not publish until every item below is true.
 
 ### Intent and decision
 
+- Match the title to the evidence and coverage. A “best” roundup needs meaningful competing models and a supported selection method; two sizes of one model are not two independent recommendations. If comparative evidence is insufficient, use an accurate comparison or single-product title instead of claiming a market winner.
+- Keep editorial selection independent of affiliate availability. A manufacturer-verified alternative can remain in the comparison with `amazonStatus: unavailable` and no purchase CTA when its retailer listing fails verification. Explain a specific listing problem briefly; never show an indefinite “being re-verified” button.
 - State the buying verdict near the top.
 - Define who the guide is for and which purchase it helps them make.
 - Segment recommendations by need, situation, budget and meaningful physical or performance constraints.
@@ -98,6 +100,9 @@ Do not add FAQs only to reach a count. Each answer must change a decision, preve
 
 ### Readability and commerce
 
+- Place relevant product displays immediately after the buying verdict. Put the verified purchase action beside the exact build, fit, trade-off and skip guidance. Do not require scrolling past the entire article to find a product.
+- Add contextual links where readers face a related decision, using descriptive real anchors. Each guide needs a useful incoming link from another guide as well as hub discovery; do not add irrelevant links to meet a count.
+- Use HTML/CSS/JavaScript diagrams or calculators when they clarify a real decision. Keep explanations and labels in readable HTML, support keyboard and mobile use, show inputs/units/method/limits, and provide a useful non-JavaScript fallback. Never disguise illustrative or user-entered numbers as test evidence.
 - Use plain language and short sections.
 - Put the answer before the background explanation.
 - Use a decision table when readers must map several situations to different actions.
@@ -119,6 +124,8 @@ Do not add FAQs only to reach a count. Each answer must change a decision, preve
 
 ### Technical checks
 
+- Build guide content, contextual links, unique titles/descriptions, canonical URLs and matching article schema into the initial HTML. Verify hydration and clean-path hosting after prerendering; do not mistake an empty app shell for a complete crawlable article.
+- Run `npm run check:guides` after the production build to check initial HTML, metadata, schema, link targets and the centralized Amazon guard. Build failure on missing link targets or orphaned guides is intentional.
 - Never use a hash or URL fragment for page routing. Use descriptive lowercase, hyphenated paths.
 - Every indexable guide and product destination must be a real `<a href>` link, not a button-only JavaScript route.
 - Give each indexable page one self-referencing absolute canonical URL. Use the same clean path in Open Graph metadata, JSON-LD, internal links and `sitemap.xml`.
@@ -148,3 +155,9 @@ Do not add FAQs only to reach a count. Each answer must change a decision, preve
 8. Report the article, sources, obstacles resolved, fan-out questions added, checks run, commit and push result.
 
 If primary evidence is insufficient, do not publish confident specificity. Narrow the claim, disclose uncertainty or choose a different article.
+
+## Competitive SEO review
+
+An automated checklist is a floor, not evidence that an article deserves first place. Compare the five relevant live organic results for intent, meaningful alternatives, original evidence, useful tools, unanswered buying obstacles and credible authorship. Document what our page adds and what remains weaker. Never invent experience to close that gap.
+
+Use Search Console data from this site's actual property to judge indexing, query coverage, clicks and CTR. Exports from adjacent sites inform topic hypotheses only. Review commercial outcomes separately, including engagement with useful recommendations and verified outbound clicks. More words, more FAQs, more products or more links do not by themselves justify a number-one claim or ranking guarantee.

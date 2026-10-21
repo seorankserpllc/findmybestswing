@@ -42,6 +42,7 @@ function normalizeRoute(route: string): string {
 }
 
 function readBrowserRoute(): string {
+  if (typeof window === 'undefined') return '/';
   const legacyRoute = window.location.hash.startsWith('#' + '/')
     ? window.location.hash.slice(1)
     : `${window.location.pathname}${window.location.search}`;
@@ -54,7 +55,7 @@ function readBrowserRoute(): string {
   return normalized;
 }
 
-function getRouteMeta(route: string): RouteMeta {
+export function getRouteMeta(route: string): RouteMeta {
   const url = new URL(route, SITE_URL);
   const path = url.pathname;
 
@@ -176,11 +177,11 @@ function setPropertyMeta(property: string, content: string) {
   element.content = content;
 }
 
-export function App() {
-  const [currentRoute, setCurrentRoute] = useState<string>(readBrowserRoute);
+export function App({ initialRoute }: { initialRoute?: string } = {}) {
+  const [currentRoute, setCurrentRoute] = useState<string>(() => initialRoute ?? readBrowserRoute());
 
   const [quizState, setQuizState] = useState<QuizState>(() => {
-    const saved = localStorage.getItem('golf_quiz_state');
+    const saved = typeof localStorage === 'undefined' ? null : localStorage.getItem('golf_quiz_state');
     if (saved) {
       try {
         return JSON.parse(saved);
@@ -303,7 +304,6 @@ export function App() {
         return (
           <GuideDetail
             guide={guide}
-            onBack={() => navigateTo('/guides')}
             onNavigate={navigateTo}
           />
         );

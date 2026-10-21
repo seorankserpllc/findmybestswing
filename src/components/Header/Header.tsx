@@ -73,7 +73,7 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, onNavigate }) => {
                     href={'/catalog'} onNavigate={handleNav}
                     className="block w-full text-left px-3 py-2 rounded-xl text-xs font-bold text-white hover:bg-fairway-900/70 hover:text-fairway-300"
                   >
-                    All Tested Equipment
+                    All Equipment
                   </InternalLink>
                   <div className="h-px bg-fairway-900/80 my-1"></div>
                   <InternalLink
