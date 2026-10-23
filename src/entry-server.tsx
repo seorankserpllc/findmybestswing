@@ -7,6 +7,7 @@ import { GUIDE_CONNECTIONS } from './data/guideConnections';
 export const guideRoutes = ['/guides', ...EDITORIAL_GUIDES.map(guide => `/guides/${guide.slug}`)];
 export const guideAuditData = EDITORIAL_GUIDES;
 export { carryGap } from './components/Guides/CarryGapWorksheet';
+export { ballReplacementCost } from './components/Guides/BallCostWorksheet';
 
 export function validateGuideLinks() {
   for (const guide of EDITORIAL_GUIDES) {

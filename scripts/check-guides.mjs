@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFile, readdir } from 'node:fs/promises';
 import { join } from 'node:path';
-import { guideAuditData, validateGuideLinks, carryGap } from '../dist-ssr/entry-server.js';
+import { guideAuditData, validateGuideLinks, carryGap, ballReplacementCost } from '../dist-ssr/entry-server.js';
 
 validateGuideLinks();
 const sitemap = await readFile('dist/sitemap.xml', 'utf8');
@@ -60,4 +60,13 @@ await checkSource('src');
 for (const [longer, shorter, result] of [['150', '135', 15], ['100.2', '90.1', 10.1], ['100', '100', 0], ['90', '100', -10], ['', '100', null], ['0', '100', null], ['401', '100', null], ['NaN', '100', null]]) {
   assert.equal(carryGap(longer, shorter), result);
 }
-console.log(`PASS: ${guideAuditData.length} guide documents, ${contextualLinks} contextual links, metadata/schema, Amazon gates and carry-gap edge cases.`);
+for (const [price, balls, rounds, expected] of [
+  ['24', '2', '10', 40], ['48', '2', '10', 80], ['24', '0.5', '4', 4], ['24', '0', '10', 0],
+  ['', '2', '10', null], ['0', '2', '10', null], ['24', '-1', '10', null],
+  ['24', '2', '1.5', null], ['24', '2', '366', null], ['Infinity', '2', '10', null],
+  ['1001', '2', '10', null], ['24', '37', '10', null], ['0.001', '2', '10', null],
+]) assert.equal(ballReplacementCost(price, balls, rounds), expected);
+const ballHtml = await readFile('dist/guides/golf-ball-compression-chart-velocity-guide/index.html', 'utf8');
+assert.ok(ballHtml.includes('ball-cost-heading') && ballHtml.includes('delivered dozen price ÷ 12'));
+assert.ok(ballHtml.includes('<noscript>'));
+console.log(`PASS: ${guideAuditData.length} guide documents, ${contextualLinks} contextual links, metadata/schema, Amazon gates, carry-gap and ball-cost edge cases.`);

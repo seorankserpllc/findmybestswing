@@ -7,6 +7,7 @@ import { ArrowLeft, Clock, Calendar, User, CheckCircle, AlertCircle, Info, Exter
 import { InternalLink } from '../Common/InternalLink';
 import { GUIDE_CONNECTIONS } from '../../data/guideConnections';
 import { CarryGapWorksheet } from './CarryGapWorksheet';
+import { BallCostWorksheet } from './BallCostWorksheet';
 
 interface GuideDetailProps {
   guide: EditorialGuide;
@@ -185,6 +186,7 @@ export const GuideDetail: React.FC<GuideDetailProps> = ({ guide, onNavigate }) =
       </section>
 
       {['best-irons-for-20-handicap', 'what-wedges-should-a-beginner-carry'].includes(guide.slug) && <CarryGapWorksheet key={guide.slug} />}
+      {guide.slug === 'golf-ball-compression-chart-velocity-guide' && <BallCostWorksheet />}
 
       <div className="max-w-4xl space-y-10 text-sm sm:text-base text-slate-300 leading-relaxed">
         {guide.contentSections.map((section) => (
